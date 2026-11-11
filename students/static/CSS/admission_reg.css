@@ -1,0 +1,314 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f3f7fc;
+    color: #222;
+}
+
+.header {
+    min-height: 85px;
+    background: #071d49;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 7%;
+    color: white;
+}
+
+.school-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-circle {
+    width: 55px;
+    height: 55px;
+    border: 3px solid white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+.school-logo h2 {
+    font-size: 23px;
+    margin: 0;
+    font-weight: 600;
+}
+
+.school-logo p {
+    margin-top: 3px;
+    font-size: 12px;
+    color: #d9e7ff;
+}
+
+.home-btn {
+    text-decoration: none;
+    color: white;
+    border: 3px solid white;
+    padding: 10px 18px;
+    border-radius: 5px;
+    transition: .3s;
+}
+
+.home-btn:hover {
+    background: white;
+    color: #071d49;
+}
+
+.admission-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+.page-heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.page-heading h1 {
+    color: #071d49;
+    font-size: 34px;
+    margin-bottom: 8px;
+}
+
+.page-heading p {
+    color: #666;
+    font-size: 15px;
+}
+
+.form-section {
+    background: white;
+    padding: 25px 30px;
+    margin-bottom: 22px;
+    border-radius: 8px;
+    box-shadow: 0 3px 15px rgba(0,0,0,.07);
+    border-top: 4px solid #1464d2;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 12px;
+}
+
+.section-title span {
+    width: 38px;
+    height: 38px;
+    background: #eaf2ff;
+    color: #1464d2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-title h3 {
+    color: #071d49;
+    font-size: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 20px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group.full {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    display: block;
+    color: #333;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 7px;
+}
+
+.form-group label b {
+    color: red;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    border: 1px solid #ccd5e2;
+    border-radius: 5px;
+    padding: 11px 13px;
+    font-size: 14px;
+    outline: none;
+    background: white;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #1464d2;
+    box-shadow: 0 0 0 3px rgba(20,100,210,.10);
+}
+
+.declaration {
+    background: white;
+    padding: 20px;
+    border-radius: 7px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 15px rgba(0,0,0,.05);
+}
+
+.declaration label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: #555;
+    cursor: pointer;
+}
+
+.declaration input {
+    width: 17px;
+    height: 17px;
+    margin-top: 2px;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 25px 0 40px;
+}
+
+.form-buttons button {
+    border: none;
+    padding: 13px 25px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.reset-btn {
+    background: #e6eaf0;
+    color: #333;
+}
+
+.submit-btn {
+    background: #1464d2;
+    color: white;
+}
+
+.submit-btn:hover {
+    background: #0b4ea8;
+    transform: translateY(-1px);
+}
+
+footer {
+    background: #071d49;
+    color: white;
+    text-align: center;
+    padding: 18px;
+    font-size: 13px;
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 12px 5%;
+    }
+
+    .school-logo h2 {
+        font-size: 17px;
+    }
+
+    .school-logo p {
+        font-size: 10px;
+    }
+
+    .logo-circle {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+
+    .admission-container {
+        width: 94%;
+        margin: 25px auto;
+    }
+
+    .page-heading h1 {
+        font-size: 26px;
+    }
+
+    .form-section {
+        padding: 20px 16px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full {
+        grid-column: auto;
+    }
+
+    .form-buttons {
+        flex-direction: column;
+    }
+
+    .form-buttons button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .school-logo {
+        gap: 8px;
+    }
+
+    .school-logo h2 {
+        font-size: 14px;
+    }
+
+    .school-logo p {
+        font-size: 9px;
+    }
+
+    .logo-circle {
+        width: 38px;
+        height: 38px;
+        font-size: 15px;
+    }
+
+    .home-btn {
+        padding: 7px 9px;
+        font-size: 11px;
+    }
+
+    .page-heading h1 {
+        font-size: 23px;
+    }
+
+    .form-section {
+        padding: 18px 12px;
+    }
+}

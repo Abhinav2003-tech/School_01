@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Shanti Niketan - Admin Dashboard{% endblock %}</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css">
+
+    <link rel="stylesheet" href="{% static 'CSS/adminDashboard.css' %}">
+</head>
+
+
+<body>
+    <div class="dashboard-wrapper">
+
+        <!-- KEEP YOUR COMPLETE SIDEBAR HERE -->
+        <aside class="sidebar" id="sidebar">
+
+            <div class="sidebar-brand">
+                <div class="school-icon">
+                    <i class="fa-solid fa-school"></i>
+                </div>
+
+                <div>
+                    <strong>SHANTI NIKETAN</strong>
+                    <small>PUBLIC SCHOOL</small>
+                </div>
+            </div>
+
+
+            <div class="admin-mini">
+
+                <div class="admin-avatar">
+                                        {{ request.user.firstname|first|upper }} {{request.user.lastname|first|upper}}
+                </div>
+
+                <div>
+                    <strong>Admin</strong>
+                    <small>{{request.user.role}}</small>
+                </div>
+
+            </div>
+
+
+            <nav class="sidebar-menu">
+
+                <p class="menu-title">MAIN MENU</p>
+
+                <a href="{% url 'admin_dashboard_page' %}" class="menu-link {% block dash_active %}active{% endblock %}"
+                    data-section="dashboard">
+                    <i class="fa-solid fa-gauge-high"></i>
+                    <span>Dashboard</span>
+                </a>
+
+
+                <a href="{% url 'admin_students_page' %}" class="menu-link {% block students_active %}{% endblock %}"
+                    data-section="students">
+                    <i class="fa-solid fa-user-graduate"></i>
+                    <span>Students</span>
+                </a>
+
+
+                <a href="#" class="menu-link" data-section="teachers">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                    <span>Teachers</span>
+                </a>
+
+                <a href="#" class="menu-link" data-section="classes">
+                    <i class="fa-solid fa-school"></i>
+                    <span>Classes</span>
+                </a>
+
+                <a href="#" class="menu-link" data-section="attendance">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    <span>Attendance</span>
+                </a>
+
+                <!-- IMPORTANT:
+                This opens section-admissions -->
+                <a href="{% url 'admin_admission_page' %}" class="menu-link {% block adm_active %}{% endblock %}"
+                    data-section="admissions">
+                    <i class="fa-solid fa-user-plus"></i>
+                    <span>Admissions</span>
+                </a>
+
+                <a href="#" class="menu-link" data-section="fees">
+                    <i class="fa-solid fa-money-bill-wave"></i>
+                    <span>Fees</span>
+                </a>
+
+                <a href="#" class="menu-link" data-section="results">
+                    <i class="fa-solid fa-square-poll-vertical"></i>
+                    <span>Exams & Results</span>
+                </a>
+
+
+                <p class="menu-title">MANAGEMENT</p>
+
+                <a href="#" class="menu-link" data-section="notices">
+                    <i class="fa-solid fa-bullhorn"></i>
+                    <span>Notices</span>
+                </a>
+
+                <a href="#" class="menu-link" data-section="events">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <span>Events</span>
+                </a>
+
+                <a href="#" class="menu-link" data-section="gallery">
+                    <i class="fa-solid fa-images"></i>
+                    <span>Gallery</span>
+                </a>
+
+                <a href="{% url 'admin_enquiries_page' %}" class="menu-link {% block enq_active %}{% endblock %}" data-section="enquiries">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>Enquiries</span>
+                </a>
+
+                <a href="#" class="menu-link" data-section="reports">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Reports</span>
+                </a>
+
+
+                <p class="menu-title">SYSTEM</p>
+
+                <a href="{% url 'admin_settings_page' %}" class="menu-link" data-section="settings">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+
+                <a href="{% url 'admin_logout' %}" class="menu-link" id="logoutBtn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+
+            </nav>
+        </aside>
+        <div class="main-area">
+
+
+            <header class="topbar">
+
+                <div class="top-left">
+
+                    <button class="sidebar-toggle" id="sidebarToggle">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+
+                    <div class="page-title">
+
+                        <h4 id="topTitle">
+                            Dashboard
+                        </h4>
+
+                        <small>
+                            School Administration Panel
+                        </small>
+
+                    </div>
+
+                </div>
+                <div class="top-actions">
+
+                    <div class="search-box">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input type="text" id="globalSearch" placeholder="Search...">
+
+                    </div>
+                    <button class="icon-btn">
+
+                        <i class="fa-regular fa-bell"></i>
+
+                        <span class="notification-dot"></span>
+
+                    </button>
+
+
+                    <div class="profile-dropdown">
+
+                        <button class="profile-btn" id="profileBtn">
+
+                            <span class="profile-avatar">
+                                {{ request.user.firstname|first|upper }} {{request.user.lastname|first|upper}}
+                            </span>
+
+                            <span class="profile-name">
+                                Admin
+                            </span>
+
+                            <i class="fa-solid fa-chevron-down"></i>
+
+                        </button>
+
+
+                        <div class="profile-menu" id="profileMenu">
+
+                            <a href="#" class="profile-section-link" data-section="settings">
+
+                                <i class="fa-solid fa-user"></i>
+                                My Profile
+
+                            </a>
+
+                            <a href="{% url 'admin_settings_page' %}"
+                                class="menu-link {% block settings_active %}{% endblock %}" data-section="settings">
+                                <i class="fa-solid fa-gear"></i>
+                                <span>Settings</span>
+
+                            </a>
+
+                            <a href="{% url 'admin_logout' %}">
+
+                                <i class="fa-solid fa-right-from-bracket"></i>
+                                Logout
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+            <!-- PANEL CONTENT CHANGES PER TEMPLATE -->
+            <main class="content">
+
+                {% block content %}
+                {% endblock %}
+
+            </main>
+            <!-- KEEP YOUR EXISTING FOOTER HERE -->
+            <footer class="dashboard-footer">
+                © 2026 Shanti Niketan Public School · Admin Panel
+            </footer>
+
+        </div>
+
+    </div>
+
+    <!-- KEEP THE MOBILE OVERLAY HERE -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <!-- KEEP COMMON JAVASCRIPT LIBRARIES HERE -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+
+    <script src="{% static 'JS/adminDashboard.js' %}"></script>
+    <div id="toastMessage" class="toast-message"><span></span></div>
+</body>
+
+</html>

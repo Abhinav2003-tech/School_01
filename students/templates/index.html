@@ -1,0 +1,370 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+
+{% block content %}
+
+    <section class="b">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="logo-mark">
+                        <i class="fa-solid fa-school"></i>
+                    </div>
+                    <div class="brand-text">
+                        <strong>SHANTI NIKETAN PUBLIC SCHOOL</strong>
+                        <small>Hazaribagh, Jharkhand</small>
+                    </div>
+                </div>
+                <div class="col-md-6 b1">
+                    <p class="bwe">
+                        <a href="{% url 'index_page' %}">Home</a>
+                        <a href="{% url 'about_page' %}">About Us</a>
+                        <a href="{% url 'academic_page' %}">Academics</a>
+                        <a href="{% url 'admission_page' %}">Admission</a>
+                        <a href="{% url 'facilities_page' %}">Facilities</a>
+                        <a href="{% url 'gallery_page' %}">Gallery</a>
+                        <a href="{% url 'contact_page' %}">Contact</a>
+                    </p>
+                </div>
+                <div class="col-md-2 b2">
+                    <form>
+                        <a href="{% url 'admin_login_page' %}"><button type="button" class="btn btn-primary">Login</button></a>
+                    </form>
+                    <form>
+                        <a href="{% url 'querry_page' %}"><button type="button" class="btn btn-primary">Enquiry Now</button></a>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <div class="notice-bar">
+        <div class="notice-title">
+            <i class="fa-solid fa-bullhorn"></i>
+            NOTICE
+        </div>
+        <div class="notice-wrapper">
+            <div class="notice-text">
+                <a href="{% static 'Document/Admission Notice 2027-28 - Shanti Niketan Public School.pdf' %}">Admission Open for Session 2026-27</a>
+                <!--&nbsp; • &nbsp;
+                School will remain closed on 15th August
+                &nbsp; • &nbsp;
+                Annual Sports Day will be held soon.-->
+            </div>
+        </div>
+    </div>
+    <section class="c">
+        <img src="{% static 'Image/School_Image.png' %}" height="573.5px" width="100%">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <div class="hero-badge">WELCOME TO SHANTI NIKETAN PUBLIC SCHOOL</div>
+            <h1>Inspiring Young Minds,<br><span>Building Bright Futures.</span></h1>
+            <p>A modern learning environment where knowledge, character and creativity grow together.</p>
+            <div>
+                <a href="{% static 'Document/Shanti Niketan Public School - Prospectus.pdf' %}" class="btn primary-btn">Explore Our
+                    School <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="{% url 'admission_form_page' %}" class="btn outline-btn">Apply for Admission</a>
+            </div>
+        </div>
+    </section>
+    <section class="highlights">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-6 highlight-item">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <div><strong>25+</strong><span>Years of Excellence</span></div>
+                </div>
+                <div class="col-md-3 col-6 highlight-item">
+                    <i class="fa-solid fa-user-group"></i>
+                    <div><strong>1500+</strong><span>Happy Students</span></div>
+                </div>
+                <div class="col-md-3 col-6 highlight-item">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                    <div><strong>80+</strong><span>Expert Teachers</span></div>
+                </div>
+                <div class="col-md-3 col-6 highlight-item">
+                    <i class="fa-solid fa-trophy"></i>
+                    <div><strong>100+</strong><span>Achievements</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="d">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>About Us</h2>
+                    <p>
+                        At Shanti Niketan School, we believe that education is not just about academic success—it is
+                        about nurturing responsible, confident, creative, and compassionate individuals who are prepared
+                        to make a positive difference in the world.
+                        Our school provides a safe, supportive, and inspiring learning environment where every student
+                        is encouraged to discover their potential, develop their talents, and pursue their dreams.
+                    </p>
+                    <div class="about-points">
+                        <div><i class="fa-solid fa-circle-check"></i> Student-centered learning</div>
+                        <div><i class="fa-solid fa-circle-check"></i> Experienced and caring faculty</div>
+                        <div><i class="fa-solid fa-circle-check"></i> Modern classrooms and
+                            <pre>    laboratories</pre>
+                        </div>
+                        <div><i class="fa-solid fa-circle-check"></i> Focus on character and
+                            <pre>    leadership</pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <img src="{% static 'Image/About_Us.jpg' %}" width="90%" height="95%">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section principal-section">
+        <div class="container">
+            <div class="section-heading text-center">
+                <h2>Principal's Message</h2>
+                <div class="heading-line"></div>
+                <p>
+                    A message of inspiration, education and excellence.
+                </p>
+            </div>
+            <div class="row align-items-center k">
+                <div class="col-md-4">
+                    <img src="{% static 'Image/Principal.png' %}"
+                        class="principal-image"
+                        alt="Principal">
+                </div>
+                <div class="col-md-8">
+                    <div class="principal-message">
+                        <h2>
+                            Welcome to Shanti Niketan Public School
+                        </h2>
+                        <p>
+                            Education is not only about academic success.
+                            It is about developing responsible, confident and
+                            compassionate individuals who can contribute
+                            positively to society.
+                        </p>
+                        <p>
+                            At Shanti Niketan Public School, we encourage our
+                            students to explore their potential, ask questions,
+                            think creatively and learn from every experience.
+                            We believe that every child is unique and deserves
+                            the right guidance and opportunities to grow.
+                        </p>
+                        <p>
+                            Together with our dedicated teachers and supportive
+                            parents, we aim to create a strong foundation for
+                            every student's future.
+                        </p>
+                        <h5 class="principal-name">
+                            Dr. Abhinav Anand
+                        </h5>
+                        <small>
+                            Principal, Shanti Niketan Public School
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="text-center section-heading">
+                <div class="section-tag"></div>
+                <h2>Learning Designed for <span>Every Stage</span></h2>
+                <p>Strong foundations, curious minds and future-ready skills.</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="info-card featured-card">
+                        <div class="card-icon"><i class="fa-solid fa-shapes"></i></div>
+                        <h3>Primary School</h3>
+                        <p>Grades I–V</p>
+                        <span>Building strong foundations through joyful and activity-based learning.</span>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="info-card featured-card">
+                        <div class="card-icon"><i class="fa-solid fa-book-open"></i></div>
+                        <h3>Middle School</h3>
+                        <p>Grades VI–VIII</p>
+                        <span>Developing critical thinking, collaboration and confidence through discovery.</span>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="info-card featured-card">
+                        <div class="card-icon"><i class="fa-solid fa-flask"></i></div>
+                        <h3>Senior School</h3>
+                        <p>Grades IX–XII</p>
+                        <span>Focused academic preparation with career guidance and practical exposure.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="text-center" section-heading>
+                <div class="section-tag"></div>
+                <h2>Everything Students Need to Thrive</h2>
+            </div>
+        </div>
+    </section>
+    <section class="e">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="facility-card">
+                        <div class="card-icon1"><i class="fa-solid fa-computer"></i></div>
+                        <div>
+                            <h4>Smart Classrooms</h4>
+                            <p>Technology-enabled classrooms for interactive learning.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="facility-card">
+                        <div class="card-icon1"><i class="fa-duotone fa-solid fa-microscope"></i></div>
+                        <div>
+                            <h4>Science Labs</h4>
+                            <p>Well-equipped laboratories for hands-on experiments.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="facility-card">
+                        <div class="card-icon1"><i class="fa-solid fa-regular fa-book"></i></div>
+                        <div>
+                            <h4>Library</h4>
+                            <p>A rich collection that encourages reading and research.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="facility-card">
+                        <div class="card-icon1"><i class="fa-solid fa-person-running"></i></div>
+                        <div>
+                            <h4>Sports Ground</h4>
+                            <p>Spaces for sports, fitness and healthy competition.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="d">
+        <div class="container">
+            <div class="text-center" section-heading>
+                <div class="section-tag"></div>
+                <h2>Moments That Inspire Us</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="{% static 'Image/Image_01.png' %}" width="100%" height="280px">
+                </div>
+                <div class="col-md-4">
+                    <img src="{% static 'Image/image_02.png' %}" width="100%" height="280px">
+                </div>
+                <div class="col-md-4">
+                    <img src="{% static 'Image/image_db3.png' %}" width="100%" height="280px">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+
+        <div class="container">
+
+            <div class="section-heading text-center">
+
+                <h2>Latest News & Events</h2>
+
+                <div class="heading-line"></div>
+
+                <p>
+                    Stay updated with important school announcements.
+                </p>
+
+            </div>
+            <div class="row">
+
+                <div class="col-lg-4 col-md-6 mb-4">
+
+                    <div class="news-card">
+
+                        <div class="news-date">
+                            <i class="fa-solid fa-calendar"></i>
+                            2026
+                        </div>
+
+                        <div class="news-content">
+
+                            <h4>
+                                Admission Open
+                            </h4>
+
+                            <p>
+                                Admissions are now open for the upcoming
+                                academic session.
+                            </p>
+
+                            <a href="{% url 'admission_page' %}">
+                                Read More →
+                            </a>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="news-card">
+                        <div class="news-date">
+                            <i class="fa-solid fa-calendar"></i>
+                            School Event
+                        </div>
+                        <div class="news-content">
+                            <h4>
+                                Annual Sports Day
+                            </h4>
+                            <p>
+                                Students participate in various sports and
+                                physical activities.
+                            </p>
+                            <a href="#">
+                                Read More →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="news-card">
+                        <div class="news-date">
+                            <i class="fa-solid fa-bullhorn"></i>
+                            Notice
+                        </div>
+                        <div class="news-content">
+                            <h4>
+                                Parent Teacher Meeting
+                            </h4>
+                            <p>
+                                Parents are invited to interact with teachers
+                                and discuss student progress.
+                            </p>
+                            <a href="#">
+                                Read More →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
+
+
+

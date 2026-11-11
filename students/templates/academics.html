@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Academics{% endblock %}
+
+
+{% block content %}
+    <section class="about-banner">
+        <div class="banner-overlay">
+            <div class="container">
+                <h3>Academics</h3>
+                <p><a href="{% url 'index_page' %}">Home</a> <i class="fa-solid fa-angle-right"></i> Academics</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="intro py-5">
+        <div class="container">
+            <div class="section-title text-center">
+                <p>OUR ACADEMIC APPROACH</p>
+                <h2>Learning With Purpose</h2>
+                <div class="line"></div>
+            </div>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-6 mb-4">
+                    <h3>Building Strong Foundations</h3>
+                    <p>At Shanti Niketan Public School, we believe education is more than academic achievement. Our
+                        teaching approach encourages curiosity, critical thinking, communication, creativity and strong
+                        values.</p>
+                    <p>Students are guided by experienced teachers and provided with a supportive environment where
+                        every learner can discover their strengths and reach their potential.</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="academic-highlight">
+                        <div class="highlight-icon"><i class="fa-solid fa-book-open"></i></div>
+                        <h4>Student-Centred Learning</h4>
+                        <p>Interactive classrooms, practical activities and continuous assessment help students learn
+                            with confidence.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="programs py-5">
+        <div class="container">
+            <div class="section-title text-center">
+                <p>ACADEMIC PROGRAMMES</p>
+                <h2>Learning Stages</h2>
+                <div class="line"></div>
+            </div>
+            <div class="cards mt-5">
+                <div class="academic-card">
+                    <div class="card-icon"><i class="fa-solid fa-child-reaching"></i></div>
+                    <h3>Primary School</h3>
+                    <p>Strong foundations in language, mathematics, science, environmental studies and creative
+                        learning.</p>
+                </div>
+                <div class="academic-card">
+                    <div class="card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <h3>Middle School</h3>
+                    <p>Concept-based learning with greater focus on analytical thinking, communication and practical
+                        knowledge.</p>
+                </div>
+                <div class="academic-card">
+                    <div class="card-icon"><i class="fa-solid fa-user-graduate"></i></div>
+                    <h3>Senior School</h3>
+                    <p>Focused academic preparation, career awareness, leadership and preparation for higher education.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="subjects py-5">
+        <div class="container">
+            <div class="section-title text-center">
+                <p>CURRICULUM</p>
+                <h2>Core Learning Areas</h2>
+                <div class="line"></div>
+            </div>
+            <div class="subject-grid mt-5">
+                <div class="subject"><i class="fa-solid fa-calculator"></i><span>Mathematics</span></div>
+                <div class="subject"><i class="fa-solid fa-flask"></i><span>Science</span></div>
+                <div class="subject"><i class="fa-solid fa-language"></i><span>Languages</span></div>
+                <div class="subject"><i class="fa-solid fa-earth-americas"></i><span>Social Studies</span></div>
+                <div class="subject"><i class="fa-solid fa-computer"></i><span>Computer Education</span></div>
+                <div class="subject"><i class="fa-solid fa-palette"></i><span>Arts & Creativity</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features py-5">
+        <div class="container">
+            <div class="section-title text-center">
+                <p>BEYOND THE CLASSROOM</p>
+                <h2>Holistic Development</h2>
+                <div class="line"></div>
+            </div>
+            <div class="cards mt-5">
+                <div class="feature-box"><i class="fa-solid fa-futbol"></i>
+                    <h4>Sports</h4>
+                    <p>Encouraging teamwork, fitness and sportsmanship.</p>
+                </div>
+                <div class="feature-box"><i class="fa-solid fa-music"></i>
+                    <h4>Music & Culture</h4>
+                    <p>Developing confidence and creative expression.</p>
+                </div>
+                <div class="feature-box"><i class="fa-solid fa-microscope"></i>
+                    <h4>Practical Learning</h4>
+                    <p>Connecting classroom concepts with real-world activities.</p>
+                </div>
+                <div class="feature-box"><i class="fa-solid fa-people-group"></i>
+                    <h4>Leadership</h4>
+                    <p>Building responsibility, communication and leadership skills.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}

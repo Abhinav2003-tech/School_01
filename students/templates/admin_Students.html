@@ -1,0 +1,139 @@
+{% extends 'base2.html' %}
+{% load static %}
+
+{% block title %}Admin - Students{% endblock %}
+{% block dash_active %}{% endblock %}
+{% block students_active %}active{% endblock %}
+
+{% block content %}
+<section class="dashboard-section active-section" id="section-students">
+    <div class="section-top">
+        <div>
+            <h2>
+                Students
+            </h2>
+            <p>
+                Manage school students and student records.
+            </p>
+        </div>
+        <button class="primary-action">
+            <i class="fa-solid fa-plus"></i>
+            Add Student
+        </button>
+    </div>
+    <div class="stats-grid compact">
+        <div class="stat-card">
+
+            <div class="stat-icon blue">
+                <i class="fa-solid fa-user-graduate"></i>
+            </div>
+
+            <div>
+                <span>Total Students</span>
+                <strong>1,524</strong>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon green">
+                <i class="fa-solid fa-user-check"></i>
+            </div>
+
+            <div>
+                <span>Active</span>
+                <strong>1,480</strong>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon orange">
+                <i class="fa-solid fa-user-clock"></i>
+            </div>
+
+            <div>
+                <span>Pending</span>
+                <strong>44</strong>
+            </div>
+        </div>
+    </div>
+    <div class="panel table-panel">
+        <div class="table-tools">
+            <h3>
+                Student Records
+            </h3>
+            <div class="table-search">
+                <i class="fa-solid fa-search"></i>
+                <input class="local-search" data-target="#studentTable" placeholder="Search students...">
+            </div>
+
+        </div>
+
+
+        <div class="table-responsive">
+            <table class="admin-table" id="studentTable">
+                <thead>
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Class</th>
+                        <th>Roll No.</th>
+                        <th>Phone</th>
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>STU001</td>
+                        <td>Riya Sharma</td>
+                        <td>VIII-A</td>
+                        <td>18</td>
+                        <td>9876543210</td>
+                        <td>
+                            <span class="badge-status active">
+                                Active
+                            </span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>STU002</td>
+                        <td>Aditya Kumar</td>
+                        <td>VI-B</td>
+                        <td>24</td>
+                        <td>9876501234</td>
+                        <td>
+                            <span class="badge-status active">
+                                Active
+                            </span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>STU003</td>
+                        <td>Priya Singh</td>
+                        <td>IX-A</td>
+                        <td>11</td>
+                        <td>9988776655</td>
+                        <td>
+                            <span class="badge-status pending">
+                                Pending
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}

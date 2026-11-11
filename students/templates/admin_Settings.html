@@ -1,0 +1,85 @@
+{% extends 'base2.html' %} 
+{% load static %} 
+
+{% block title %}Admin - Settings{% endblock %}
+{% block dash_active %}{% endblock %}
+{% block students_active %}{% endblock %}
+{% block settings_active %}active{% endblock %}
+
+{% block content %}
+<section class="dashboard-section active-section" id="section-settings">
+    {% include "message.html" %}
+    <div class="section-top">
+        <div>
+            <h2>Settings</h2>
+
+            <p>Manage admin profile and dashboard preferences.</p>
+        </div>
+    </div>
+
+    <div class="settings-grid">
+        <div class="panel settings-panel">
+            <h3>Admin Profile</h3>
+
+            <div class="profile-large">
+                <div class="profile-avatar large">
+                    {{ user_is.firstname|first|upper }} {{user_is.lastname|first|upper}}
+                </div>
+
+                <div>
+                    <h4>Admin</h4>
+
+                    <p>{{user_is.role}}</p>
+                </div>
+            </div>
+
+            <form method="post">
+                {% csrf_token %}
+                <label>
+                    Full Name
+
+                    <input type="text" value="{{user_is.firstname}} {{user_is.lastname}}" />
+                </label>
+
+                <label>
+                    Email
+
+                    <input type="email" value="{{user_is.email}}" name="Email" />
+                </label>
+
+                <label>
+                    Phone
+
+                    <input type="text" value="{{user_is.phone_number}}" name="Ph_No" />
+                </label>
+
+                <button type="submit">Save Changes</button> 
+                <!-- class="primary-action" -->
+            </form>
+        </div>
+
+        <div class="panel settings-panel">
+            <h3>System Preferences</h3>
+
+            <label class="switch-row">
+                <span> Email Notifications </span>
+
+                <input type="checkbox" checked />
+
+                <span class="fake-switch"></span>
+            </label>
+
+            <label class="switch-row">
+                <span> Admission Alerts </span>
+                <input type="checkbox" checked />
+                <span class="fake-switch"></span>
+            </label>
+            <label class="switch-row">
+                <span> Fee Reminders </span>
+                <input type="checkbox" />
+                <span class="fake-switch"></span>
+            </label>
+        </div>
+    </div>
+</section>
+{% endblock %}

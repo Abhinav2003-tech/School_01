@@ -1,0 +1,26 @@
+from django.urls import path
+from .views import *
+urlpatterns = [
+    path('', indexview, name='index_page'),
+    path('About/', aboutview, name='about_page'),
+    path('Academic/', academicview, name='academic_page'),
+    path('Admission/', admissionview, name='admission_page'),
+    path('Facilities/', facilitiesview, name='facilities_page'),
+    path('Gallery/', galleryview, name='gallery_page'),
+    path('Contact/', contactview, name='contact_page'),
+    path('Admin/', adminloginview, name='admin_login_page'),
+    path('AdminReg/', adminregview, name='admin_reg_page'),
+    path('Querry/', querryview, name='querry_page'),
+    path('AdmissionForm/', admissionformview, name='admission_form_page'),
+    path('register/', registerview, name='register_user'),
+    path('dashboard/', dashboardview, name='dashboard_page'),
+    path('adm/', admission_registration_view, name = 'adm_registration'),
+    path('login/', loginview, name='login_user'),
+    path('adminDashboard/', adminDashboardview, name='admin_dashboard_page'),
+    path('adminAdmission/', adminAdmissionview, name = 'admin_admission_page'),
+    path('adminStudents/', adminStudentsview, name = 'admin_students_page'),
+    path('adminSettings/', adminSettingsview, name = 'admin_settings_page'),
+    path('stud_data/<int:stud_id>', remove_student_list, name = 'admin_stud_delete'),
+    path('adminLogout/', logoutview, name = 'admin_logout'),
+    path('adminEnquiries/', adminEnquiriesview, name = 'admin_enquiries_page')
+]

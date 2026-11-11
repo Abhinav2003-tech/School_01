@@ -1,0 +1,3454 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shanti Niketan - Admin Dashboard</title>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'CSS/adminDashboard.css' %}">
+</head>
+
+<body>
+
+<div class="dashboard-wrapper">
+
+    <!-- =========================================================
+        SIDEBAR
+    ========================================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="school-icon">
+                <i class="fa-solid fa-school"></i>
+            </div>
+
+            <div>
+                <strong>SHANTI NIKETAN</strong>
+                <small>PUBLIC SCHOOL</small>
+            </div>
+        </div>
+
+
+        <div class="admin-mini">
+
+            <div class="admin-avatar">
+                AA
+            </div>
+
+            <div>
+                <strong>Admin</strong>
+                <small>Administrator</small>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-menu">
+
+            <p class="menu-title">MAIN MENU</p>
+
+            <a href="#" class="menu-link active" data-section="dashboard">
+                <i class="fa-solid fa-gauge-high"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="#" class="menu-link" data-section="students">
+                <i class="fa-solid fa-user-graduate"></i>
+                <span>Students</span>
+            </a>
+
+            <a href="#" class="menu-link" data-section="teachers">
+                <i class="fa-solid fa-chalkboard-user"></i>
+                <span>Teachers</span>
+            </a>
+
+            <a href="#" class="menu-link" data-section="classes">
+                <i class="fa-solid fa-school"></i>
+                <span>Classes</span>
+            </a>
+
+            <a href="#" class="menu-link" data-section="attendance">
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>Attendance</span>
+            </a>
+
+            <!-- IMPORTANT:
+                 This opens section-admissions -->
+            <a href="#" class="menu-link" data-section="admissions">
+                <i class="fa-solid fa-user-plus"></i>
+                <span>Admissions</span>
+            </a>
+
+            <a href="#" class="menu-link" data-section="fees">
+                <i class="fa-solid fa-money-bill-wave"></i>
+                <span>Fees</span>
+            </a>
+
+            <a href="#" class="menu-link" data-section="results">
+                <i class="fa-solid fa-square-poll-vertical"></i>
+                <span>Exams & Results</span>
+            </a>
+
+
+            <p class="menu-title">MANAGEMENT</p>
+
+            <a href="#" class="menu-link" data-section="notices">
+                <i class="fa-solid fa-bullhorn"></i>
+                <span>Notices</span>
+            </a>
+
+            <a href="#" class="menu-link" data-section="events">
+                <i class="fa-solid fa-calendar-days"></i>
+                <span>Events</span>
+            </a>
+
+            <a href="#" class="menu-link" data-section="gallery">
+                <i class="fa-solid fa-images"></i>
+                <span>Gallery</span>
+            </a>
+
+            <a href="#" class="menu-link" data-section="enquiries">
+                <i class="fa-solid fa-envelope"></i>
+                <span>Enquiries</span>
+            </a>
+
+            <a href="#" class="menu-link" data-section="reports">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Reports</span>
+            </a>
+
+
+            <p class="menu-title">SYSTEM</p>
+
+            <a href="#" class="menu-link" data-section="settings">
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </a>
+
+            <a href="#" class="menu-link" id="logoutBtn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Logout</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- =========================================================
+         MAIN AREA
+    ========================================================== -->
+
+    <div class="main-area">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div class="top-left">
+
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="page-title">
+
+                    <h4 id="topTitle">
+                        Dashboard
+                    </h4>
+
+                    <small>
+                        School Administration Panel
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="top-actions">
+
+                <div class="search-box">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input type="text"
+                           id="globalSearch"
+                           placeholder="Search...">
+
+                </div>
+
+
+                <button class="icon-btn">
+
+                    <i class="fa-regular fa-bell"></i>
+
+                    <span class="notification-dot"></span>
+
+                </button>
+
+
+                <div class="profile-dropdown">
+
+                    <button class="profile-btn" id="profileBtn">
+
+                        <span class="profile-avatar">
+                            AA
+                        </span>
+
+                        <span class="profile-name">
+                            Admin
+                        </span>
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </button>
+
+
+                    <div class="profile-menu" id="profileMenu">
+
+                        <a href="#"
+                           class="profile-section-link"
+                           data-section="settings">
+
+                            <i class="fa-solid fa-user"></i>
+                            My Profile
+
+                        </a>
+
+                        <a href="#"
+                           class="profile-section-link"
+                           data-section="settings">
+
+                            <i class="fa-solid fa-gear"></i>
+                            Settings
+
+                        </a>
+
+                        <a href="#" id="logoutBtn2">
+
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            Logout
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =========================================================
+             CONTENT
+        ========================================================== -->
+        <main class="content">
+
+
+            <!-- =====================================================
+                 DASHBOARD
+            ====================================================== -->
+
+            <section class="dashboard-section active-section"
+                     id="section-dashboard">
+
+                <div class="welcome-row">
+
+                    <div>
+
+                        <h2>
+                            Welcome back, Admin!
+                        </h2>
+
+                        <p>
+                            Here is what's happening at
+                            Shanti Niketan Public School today.
+                        </p>
+
+                    </div>
+
+                    <button class="date-btn">
+
+                        <i class="fa-regular fa-calendar"></i>
+
+                        17 September 2026
+
+                    </button>
+
+                </div>
+
+
+                <!-- STATISTICS -->
+
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon blue">
+                            <i class="fa-solid fa-user-graduate"></i>
+                        </div>
+
+                        <div>
+
+                            <span>Total Students</span>
+
+                            <strong>1,524</strong>
+
+                            <small>
+                                <b>+5.2%</b> this session
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon green">
+                            <i class="fa-solid fa-chalkboard-user"></i>
+                        </div>
+
+                        <div>
+
+                            <span>Total Teachers</span>
+
+                            <strong>82</strong>
+
+                            <small>
+                                <b>+3</b> new teachers
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon orange">
+                            <i class="fa-solid fa-calendar-check"></i>
+                        </div>
+
+                        <div>
+
+                            <span>Today's Attendance</span>
+
+                            <strong>94.6%</strong>
+
+                            <small>
+                                <b>+1.8%</b> from yesterday
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon purple">
+                            <i class="fa-solid fa-indian-rupee-sign"></i>
+                        </div>
+
+                        <div>
+
+                            <span>Fees Collected</span>
+
+                            <strong>₹8.42L</strong>
+
+                            <small>
+                                <b>68%</b> of target
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DASHBOARD PANELS -->
+
+                <div class="content-grid">
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <h3>
+                                    Attendance Overview
+                                </h3>
+
+                                <p>
+                                    Monthly student attendance
+                                </p>
+
+                            </div>
+
+                            <select>
+
+                                <option>
+                                    September 2026
+                                </option>
+
+                                <option>
+                                    August 2026
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="chart">
+
+                            <div class="y-labels">
+
+                                <span>100%</span>
+                                <span>80%</span>
+                                <span>60%</span>
+                                <span>40%</span>
+                                <span>20%</span>
+                                <span>0%</span>
+
+                            </div>
+
+
+                            <div class="chart-area">
+
+                                <div class="grid-line" style="top:0"></div>
+                                <div class="grid-line" style="top:20%"></div>
+                                <div class="grid-line" style="top:40%"></div>
+                                <div class="grid-line" style="top:60%"></div>
+                                <div class="grid-line" style="top:80%"></div>
+                                <div class="grid-line" style="top:100%"></div>
+
+
+                                <div class="bars">
+
+                                    <div class="bar-wrap">
+                                        <div class="bar" style="height:88%"></div>
+                                        <span>1</span>
+                                    </div>
+
+                                    <div class="bar-wrap">
+                                        <div class="bar" style="height:92%"></div>
+                                        <span>2</span>
+                                    </div>
+
+                                    <div class="bar-wrap">
+                                        <div class="bar" style="height:90%"></div>
+                                        <span>3</span>
+                                    </div>
+
+                                    <div class="bar-wrap">
+                                        <div class="bar" style="height:95%"></div>
+                                        <span>4</span>
+                                    </div>
+
+                                    <div class="bar-wrap">
+                                        <div class="bar" style="height:91%"></div>
+                                        <span>5</span>
+                                    </div>
+
+                                    <div class="bar-wrap">
+                                        <div class="bar" style="height:96%"></div>
+                                        <span>6</span>
+                                    </div>
+
+                                    <div class="bar-wrap">
+                                        <div class="bar" style="height:93%"></div>
+                                        <span>7</span>
+                                    </div>
+
+                                    <div class="bar-wrap">
+                                        <div class="bar" style="height:97%"></div>
+                                        <span>8</span>
+                                    </div>
+
+                                    <div class="bar-wrap">
+                                        <div class="bar" style="height:94%"></div>
+                                        <span>9</span>
+                                    </div>
+
+                                    <div class="bar-wrap">
+                                        <div class="bar" style="height:96%"></div>
+                                        <span>10</span>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- QUICK ACTIONS -->
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <h3>
+                                    Quick Actions
+                                </h3>
+
+                                <p>
+                                    Frequently used actions
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="quick-actions">
+
+                            <button data-section="students">
+
+                                <i class="fa-solid fa-user-plus"></i>
+
+                                <span>
+                                    Add Student
+                                </span>
+
+                            </button>
+
+
+                            <button data-section="teachers">
+
+                                <i class="fa-solid fa-user-tie"></i>
+
+                                <span>
+                                    Add Teacher
+                                </span>
+
+                            </button>
+
+
+                            <button data-section="notices">
+
+                                <i class="fa-solid fa-bullhorn"></i>
+
+                                <span>
+                                    New Notice
+                                </span>
+
+                            </button>
+
+
+                            <button data-section="events">
+
+                                <i class="fa-solid fa-calendar-plus"></i>
+
+                                <span>
+                                    Add Event
+                                </span>
+
+                            </button>
+
+
+                            <button data-section="fees">
+
+                                <i class="fa-solid fa-receipt"></i>
+
+                                <span>
+                                    Fee Record
+                                </span>
+
+                            </button>
+
+
+                            <button data-section="reports">
+
+                                <i class="fa-solid fa-file-export"></i>
+
+                                <span>
+                                    Reports
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RECENT STUDENTS -->
+
+                <div class="panel table-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h3>
+                                Recent Students
+                            </h3>
+
+                            <p>
+                                Recently added students
+                            </p>
+
+                        </div>
+
+                        <button class="view-all"
+                                data-section="students">
+
+                            View All
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="table-responsive">
+
+                        <table class="admin-table">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Student</th>
+                                    <th>Class</th>
+                                    <th>Roll No.</th>
+                                    <th>Status</th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+
+                                        <div class="person">
+
+                                            <span class="person-avatar">
+                                                RS
+                                            </span>
+
+                                            <div>
+
+                                                <strong>
+                                                    Riya Sharma
+                                                </strong>
+
+                                                <small>
+                                                    STU-2026-101
+                                                </small>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+                                    <td>VIII-A</td>
+
+                                    <td>18</td>
+
+                                    <td>
+                                        <span class="badge-status active">
+                                            Active
+                                        </span>
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+
+                                        <div class="person">
+
+                                            <span class="person-avatar">
+                                                AK
+                                            </span>
+
+                                            <div>
+
+                                                <strong>
+                                                    Aditya Kumar
+                                                </strong>
+
+                                                <small>
+                                                    STU-2026-102
+                                                </small>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+                                    <td>VI-B</td>
+
+                                    <td>24</td>
+
+                                    <td>
+                                        <span class="badge-status active">
+                                            Active
+                                        </span>
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+
+                                        <div class="person">
+
+                                            <span class="person-avatar">
+                                                PS
+                                            </span>
+
+                                            <div>
+
+                                                <strong>
+                                                    Priya Singh
+                                                </strong>
+
+                                                <small>
+                                                    STU-2026-103
+                                                </small>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+                                    <td>IX-A</td>
+
+                                    <td>11</td>
+
+                                    <td>
+                                        <span class="badge-status active">
+                                            Active
+                                        </span>
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+
+                                        <div class="person">
+
+                                            <span class="person-avatar">
+                                                RM
+                                            </span>
+
+                                            <div>
+
+                                                <strong>
+                                                    Rahul Mehta
+                                                </strong>
+
+                                                <small>
+                                                    STU-2026-104
+                                                </small>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+                                    <td>VII-C</td>
+
+                                    <td>31</td>
+
+                                    <td>
+                                        <span class="badge-status pending">
+                                            Pending
+                                        </span>
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================================
+                 STUDENTS
+            ====================================================== -->
+
+            <section class="dashboard-section" id="section-students">
+                <div class="section-top">
+                    <div>
+                        <h2>
+                            Students
+                        </h2>
+                        <p>
+                            Manage school students and student records.
+                        </p>
+                    </div>
+                    <button class="primary-action">
+                        <i class="fa-solid fa-plus"></i>
+                        Add Student
+                    </button>
+                </div>
+                <div class="stats-grid compact">
+                    <div class="stat-card">
+
+                        <div class="stat-icon blue">
+                            <i class="fa-solid fa-user-graduate"></i>
+                        </div>
+
+                        <div>
+                            <span>Total Students</span>
+                            <strong>1,524</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon green">
+                            <i class="fa-solid fa-user-check"></i>
+                        </div>
+
+                        <div>
+                            <span>Active</span>
+                            <strong>1,480</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon orange">
+                            <i class="fa-solid fa-user-clock"></i>
+                        </div>
+
+                        <div>
+                            <span>Pending</span>
+                            <strong>44</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel table-panel">
+                    <div class="table-tools">
+                        <h3>
+                            Student Records
+                        </h3>
+                        <div class="table-search">
+                            <i class="fa-solid fa-search"></i>
+                            <input class="local-search" data-target="#studentTable" placeholder="Search students...">
+                        </div>
+
+                    </div>
+
+
+                    <div class="table-responsive">
+                        <table class="admin-table" id="studentTable">
+                            <thead>
+                                <tr>
+
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Class</th>
+                                    <th>Roll No.</th>
+                                    <th>Phone</th>
+                                    <th>Status</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>STU001</td>
+                                    <td>Riya Sharma</td>
+                                    <td>VIII-A</td>
+                                    <td>18</td>
+                                    <td>9876543210</td>
+                                    <td>
+                                        <span class="badge-status active">
+                                            Active
+                                        </span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>STU002</td>
+                                    <td>Aditya Kumar</td>
+                                    <td>VI-B</td>
+                                    <td>24</td>
+                                    <td>9876501234</td>
+                                    <td>
+                                        <span class="badge-status active">
+                                            Active
+                                        </span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>STU003</td>
+                                    <td>Priya Singh</td>
+                                    <td>IX-A</td>
+                                    <td>11</td>
+                                    <td>9988776655</td>
+                                    <td>
+                                        <span class="badge-status pending">
+                                            Pending
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- =====================================================
+                TEACHERS
+            ====================================================== -->
+
+            <section class="dashboard-section"
+                    id="section-teachers">
+
+                <div class="section-top">
+
+                    <div>
+
+                        <h2>
+                            Teachers
+                        </h2>
+
+                        <p>
+                            Manage teachers and staff members.
+                        </p>
+
+                    </div>
+
+                    <button class="primary-action">
+
+                        <i class="fa-solid fa-plus"></i>
+
+                        Add Teacher
+
+                    </button>
+
+                </div>
+
+
+                <div class="card-grid">
+
+                    <div class="management-card">
+
+                        <i class="fa-solid fa-chalkboard-user"></i>
+
+                        <h3>
+                            Total Teachers
+                        </h3>
+
+                        <p>
+                            82 registered teachers
+                        </p>
+
+                        <button>
+                            View Teachers
+                        </button>
+
+                    </div>
+
+
+                    <div class="management-card">
+
+                        <i class="fa-solid fa-user-check"></i>
+
+                        <h3>
+                            Present Today
+                        </h3>
+
+                        <p>
+                            78 teachers present
+                        </p>
+
+                        <button>
+                            Attendance
+                        </button>
+
+                    </div>
+
+
+                    <div class="management-card">
+
+                        <i class="fa-solid fa-user-clock"></i>
+
+                        <h3>
+                            On Leave
+                        </h3>
+
+                        <p>
+                            4 teachers on leave
+                        </p>
+
+                        <button>
+                            View Leave
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================================
+                 CLASSES
+            ====================================================== -->
+
+            <section class="dashboard-section"
+                     id="section-classes">
+
+                <div class="section-top">
+
+                    <div>
+
+                        <h2>
+                            Classes
+                        </h2>
+
+                        <p>
+                            Manage classes and sections.
+                        </p>
+
+                    </div>
+
+                    <button class="primary-action">
+
+                        <i class="fa-solid fa-plus"></i>
+
+                        Add Class
+
+                    </button>
+
+                </div>
+
+
+                <div class="card-grid">
+
+                    <div class="management-card">
+
+                        <i class="fa-solid fa-school"></i>
+
+                        <h3>
+                            Primary Classes
+                        </h3>
+
+                        <p>
+                            Classes I - V
+                        </p>
+
+                        <button>
+                            Manage
+                        </button>
+
+                    </div>
+
+
+                    <div class="management-card">
+
+                        <i class="fa-solid fa-book"></i>
+
+                        <h3>
+                            Middle Classes
+                        </h3>
+
+                        <p>
+                            Classes VI - VIII
+                        </p>
+
+                        <button>
+                            Manage
+                        </button>
+
+                    </div>
+
+
+                    <div class="management-card">
+
+                        <i class="fa-solid fa-graduation-cap"></i>
+
+                        <h3>
+                            Senior Classes
+                        </h3>
+
+                        <p>
+                            Classes IX - XII
+                        </p>
+
+                        <button>
+                            Manage
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================================
+                 ATTENDANCE
+            ====================================================== -->
+
+            <section class="dashboard-section"
+                     id="section-attendance">
+
+                <div class="section-top">
+
+                    <div>
+
+                        <h2>
+                            Attendance
+                        </h2>
+
+                        <p>
+                            Monitor student attendance.
+                        </p>
+
+                    </div>
+
+                    <button class="primary-action">
+
+                        <i class="fa-solid fa-calendar-check"></i>
+
+                        Mark Attendance
+
+                    </button>
+
+                </div>
+
+
+                <div class="stats-grid compact">
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon green">
+                            <i class="fa-solid fa-user-check"></i>
+                        </div>
+
+                        <div>
+                            <span>Present</span>
+                            <strong>1,441</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon orange">
+                            <i class="fa-solid fa-user-xmark"></i>
+                        </div>
+
+                        <div>
+                            <span>Absent</span>
+                            <strong>83</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon blue">
+                            <i class="fa-solid fa-percent"></i>
+                        </div>
+
+                        <div>
+                            <span>Attendance</span>
+                            <strong>94.6%</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel table-panel">
+
+                    <div class="table-tools">
+
+                        <h3>
+                            Today's Attendance
+                        </h3>
+
+                        <div class="table-search">
+
+                            <i class="fa-solid fa-search"></i>
+
+                            <input class="local-search"
+                                   data-target="#attendanceTable"
+                                   placeholder="Search...">
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="table-responsive">
+
+                        <table class="admin-table"
+                               id="attendanceTable">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Class</th>
+                                    <th>Total</th>
+                                    <th>Present</th>
+                                    <th>Absent</th>
+                                    <th>Percentage</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>VIII-A</td>
+                                    <td>42</td>
+                                    <td>40</td>
+                                    <td>2</td>
+                                    <td>95.2%</td>
+                                </tr>
+
+                                <tr>
+                                    <td>IX-A</td>
+                                    <td>45</td>
+                                    <td>42</td>
+                                    <td>3</td>
+                                    <td>93.3%</td>
+                                </tr>
+
+                                <tr>
+                                    <td>VII-C</td>
+                                    <td>38</td>
+                                    <td>36</td>
+                                    <td>2</td>
+                                    <td>94.7%</td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================================
+                 ADMISSION APPLICATIONS
+                 
+                 IMPORTANT:
+                 THIS IS THE ONLY SECTION WITH
+                 id="section-admissions"
+            ====================================================== -->
+
+            <section class="dashboard-section admission-section"
+                     id="section-admissions">
+
+                <div class="admission-heading">
+
+                    <div>
+
+                        <h2>
+                            Admission Applications
+                        </h2>
+
+                        <p>
+                            Manage and review student admission applications.
+                        </p>
+
+                    </div>
+
+
+                    <button class="export-btn"
+                            id="exportApplications">
+
+                        <i class="fa-solid fa-file-export"></i>
+
+                        Export CSV
+
+                    </button>
+
+                </div>
+
+
+                <!-- ADMISSION STATISTICS -->
+
+                <div class="admission-stats">
+
+                    <div class="admission-stat">
+
+                        <div class="stat-icon total">
+
+                            <i class="fa-solid fa-file-lines"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h3 id="totalApplications">
+                                4
+                            </h3>
+
+                            <p>
+                                Total Applications
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="admission-stat">
+
+                        <div class="stat-icon pending">
+
+                            <i class="fa-solid fa-clock"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h3 id="pendingApplications">
+                                2
+                            </h3>
+
+                            <p>
+                                Pending Review
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="admission-stat">
+
+                        <div class="stat-icon approved">
+
+                            <i class="fa-solid fa-circle-check"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h3 id="approvedApplications">
+                                1
+                            </h3>
+
+                            <p>
+                                Approved
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="admission-stat">
+
+                        <div class="stat-icon rejected">
+
+                            <i class="fa-solid fa-circle-xmark"></i>
+
+                        </div>
+
+                        <div>
+                            <h3 id="rejectedApplications">
+                                1
+                            </h3>
+
+                            <p>
+                                Rejected
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SEARCH / FILTER -->
+
+                <div class="admission-toolbar">
+
+                    <div class="admission-search">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input type="text"
+                               id="applicationSearch"
+                               placeholder="Search student, father name or mobile...">
+
+                    </div>
+
+
+                    <div class="admission-filter">
+
+                        <select id="applicationStatusFilter">
+
+                            <option value="all">
+                                All Status
+                            </option>
+
+                            <option value="Pending">
+                                Pending
+                            </option>
+
+                            <option value="Approved">
+                                Approved
+                            </option>
+
+                            <option value="Rejected">
+                                Rejected
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- APPLICATION TABLE -->
+
+                <div class="applications-table-wrapper">
+
+                    <table class="applications-table"
+                           id="applicationsTable">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Application ID</th>
+                                <th>Student Name</th>
+                                <th>Date of Birth</th>
+                                <th>Gender</th>
+                                <th>Class</th>
+                                <th>Academic Year</th>
+                                <th>Father's Name</th>
+                                <th>Mobile Number</th>
+                                <th>Status</th>
+                                <th>Action</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <!-- APPLICATION 1 -->
+
+                            <tr data-status="Pending"
+                                data-student="Rahul Kumar"
+                                data-father="Rajesh Kumar"
+                                data-mobile="9876543210">
+
+                                <td>
+                                    <span class="application-id">
+                                        ADM001
+                                    </span>
+                                </td>
+
+
+                                <td>
+
+                                    <div class="student-name">
+
+                                        <div class="student-avatar">
+                                            R
+                                        </div>
+
+                                        <div>
+
+                                            <strong>
+                                                Rahul Kumar
+                                            </strong>
+
+                                            <small>
+                                                Male
+                                            </small>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+                                    12-04-2014
+                                </td>
+
+                                <td>
+                                    Male
+                                </td>
+
+                                <td>
+                                    Class 6
+                                </td>
+
+                                <td>
+                                    2026 - 2027
+                                </td>
+
+                                <td>
+                                    Rajesh Kumar
+                                </td>
+
+                                <td>
+                                    9876543210
+                                </td>
+
+
+                                <td>
+
+                                    <span class="application-badge pending-badge">
+                                        Pending
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <button class="action-btn view-btn"
+                                            data-toggle="modal"
+                                            data-target="#applicationModal"
+
+                                            data-id="ADM001"
+                                            data-first="Rahul"
+                                            data-middle=""
+                                            data-last="Kumar"
+                                            data-dob="12-04-2014"
+                                            data-gender="Male"
+                                            data-blood="B+"
+                                            data-class="Class 6"
+                                            data-year="2026 - 2027"
+                                            data-previous-school="DAV Public School"
+                                            data-previous-class="Class 5"
+                                            data-father="Rajesh Kumar"
+                                            data-mother="Sunita Kumar"
+                                            data-guardian=""
+                                            data-relationship="Father"
+                                            data-mobile="9876543210"
+                                            data-email="rajesh@example.com"
+                                            data-address="Main Road, Hazaribagh"
+                                            data-city="Hazaribagh"
+                                            data-state="Jharkhand"
+                                            data-pin="825301"
+                                            data-nationality="Indian"
+                                            data-religion="Hindu"
+                                            data-disability="No"
+                                            data-special="None"
+                                            data-status="Pending">
+
+                                        <i class="fa-solid fa-eye"></i>
+
+                                        View
+
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+
+                            <!-- APPLICATION 2 -->
+
+                            <tr data-status="Pending"
+                                data-student="Priya Sharma"
+                                data-father="Amit Sharma"
+                                data-mobile="9876501234">
+
+                                <td>
+                                    <span class="application-id">
+                                        ADM002
+                                    </span>
+                                </td>
+
+
+                                <td>
+
+                                    <div class="student-name">
+
+                                        <div class="student-avatar">
+                                            P
+                                        </div>
+
+                                        <div>
+
+                                            <strong>
+                                                Priya Sharma
+                                            </strong>
+
+                                            <small>
+                                                Female
+                                            </small>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+                                    18-08-2015
+                                </td>
+
+                                <td>
+                                    Female
+                                </td>
+
+                                <td>
+                                    Class 5
+                                </td>
+
+                                <td>
+                                    2026 - 2027
+                                </td>
+
+                                <td>
+                                    Amit Sharma
+                                </td>
+
+                                <td>
+                                    9876501234
+                                </td>
+
+
+                                <td>
+
+                                    <span class="application-badge pending-badge">
+                                        Pending
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <button class="action-btn view-btn"
+                                            data-toggle="modal"
+                                            data-target="#applicationModal"
+
+                                            data-id="ADM002"
+                                            data-first="Priya"
+                                            data-middle=""
+                                            data-last="Sharma"
+                                            data-dob="18-08-2015"
+                                            data-gender="Female"
+                                            data-blood="O+"
+                                            data-class="Class 5"
+                                            data-year="2026 - 2027"
+                                            data-previous-school="St. Xavier School"
+                                            data-previous-class="Class 4"
+                                            data-father="Amit Sharma"
+                                            data-mother="Pooja Sharma"
+                                            data-guardian=""
+                                            data-relationship="Father"
+                                            data-mobile="9876501234"
+                                            data-email="amit@example.com"
+                                            data-address="Lake Road, Hazaribagh"
+                                            data-city="Hazaribagh"
+                                            data-state="Jharkhand"
+                                            data-pin="825301"
+                                            data-nationality="Indian"
+                                            data-religion="Hindu"
+                                            data-disability="No"
+                                            data-special="None"
+                                            data-status="Pending">
+
+                                        <i class="fa-solid fa-eye"></i>
+
+                                        View
+
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+
+                            <!-- APPLICATION 3 -->
+
+                            <tr data-status="Approved"
+                                data-student="Aman Singh"
+                                data-father="Rakesh Singh"
+                                data-mobile="9123456780">
+
+                                <td>
+                                    <span class="application-id">
+                                        ADM003
+                                    </span>
+                                </td>
+
+
+                                <td>
+
+                                    <div class="student-name">
+
+                                        <div class="student-avatar">
+                                            A
+                                        </div>
+
+                                        <div>
+
+                                            <strong>
+                                                Aman Singh
+                                            </strong>
+
+                                            <small>
+                                                Male
+                                            </small>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+                                    25-03-2012
+                                </td>
+
+                                <td>
+                                    Male
+                                </td>
+
+                                <td>
+                                    Class 9
+                                </td>
+
+                                <td>
+                                    2026 - 2027
+                                </td>
+
+                                <td>
+                                    Rakesh Singh
+                                </td>
+
+                                <td>
+                                    9123456780
+                                </td>
+
+
+                                <td>
+
+                                    <span class="application-badge approved-badge">
+                                        Approved
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <button class="action-btn view-btn"
+                                            data-toggle="modal"
+                                            data-target="#applicationModal"
+
+                                            data-id="ADM003"
+                                            data-first="Aman"
+                                            data-middle=""
+                                            data-last="Singh"
+                                            data-dob="25-03-2012"
+                                            data-gender="Male"
+                                            data-blood="A+"
+                                            data-class="Class 9"
+                                            data-year="2026 - 2027"
+                                            data-previous-school="DAV Public School"
+                                            data-previous-class="Class 8"
+                                            data-father="Rakesh Singh"
+                                            data-mother="Meena Singh"
+                                            data-guardian=""
+                                            data-relationship="Father"
+                                            data-mobile="9123456780"
+                                            data-email="rakesh@example.com"
+                                            data-address="Sadar, Hazaribagh"
+                                            data-city="Hazaribagh"
+                                            data-state="Jharkhand"
+                                            data-pin="825301"
+                                            data-nationality="Indian"
+                                            data-religion="Hindu"
+                                            data-disability="No"
+                                            data-special="None"
+                                            data-status="Approved">
+
+                                        <i class="fa-solid fa-eye"></i>
+
+                                        View
+
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+
+                            <!-- APPLICATION 4 -->
+
+                            <tr data-status="Rejected"
+                                data-student="Neha Sharma"
+                                data-father="Suresh Sharma"
+                                data-mobile="9988776655">
+
+                                <td>
+                                    <span class="application-id">
+                                        ADM004
+                                    </span>
+                                </td>
+
+
+                                <td>
+
+                                    <div class="student-name">
+
+                                        <div class="student-avatar">
+                                            N
+                                        </div>
+
+                                        <div>
+
+                                            <strong>
+                                                Neha Sharma
+                                            </strong>
+
+                                            <small>
+                                                Female
+                                            </small>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+                                    05-11-2016
+                                </td>
+
+                                <td>
+                                    Female
+                                </td>
+
+                                <td>
+                                    Class 4
+                                </td>
+
+                                <td>
+                                    2026 - 2027
+                                </td>
+
+                                <td>
+                                    Suresh Sharma
+                                </td>
+
+                                <td>
+                                    9988776655
+                                </td>
+
+
+                                <td>
+
+                                    <span class="application-badge rejected-badge">
+                                        Rejected
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <button class="action-btn view-btn"
+                                            data-toggle="modal"
+                                            data-target="#applicationModal"
+
+                                            data-id="ADM004"
+                                            data-first="Neha"
+                                            data-middle=""
+                                            data-last="Sharma"
+                                            data-dob="05-11-2016"
+                                            data-gender="Female"
+                                            data-blood="AB+"
+                                            data-class="Class 4"
+                                            data-year="2026 - 2027"
+                                            data-previous-school="DAV Public School"
+                                            data-previous-class="Class 3"
+                                            data-father="Suresh Sharma"
+                                            data-mother="Anita Sharma"
+                                            data-guardian=""
+                                            data-relationship="Father"
+                                            data-mobile="9988776655"
+                                            data-email="suresh@example.com"
+                                            data-address="Matwari, Hazaribagh"
+                                            data-city="Hazaribagh"
+                                            data-state="Jharkhand"
+                                            data-pin="825301"
+                                            data-nationality="Indian"
+                                            data-religion="Hindu"
+                                            data-disability="No"
+                                            data-special="None"
+                                            data-status="Rejected">
+
+                                        <i class="fa-solid fa-eye"></i>
+
+                                        View
+
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================================
+                 FEES
+            ====================================================== -->
+
+            <section class="dashboard-section"
+                     id="section-fees">
+
+                <div class="section-top">
+
+                    <div>
+
+                        <h2>
+                            Fees Management
+                        </h2>
+
+                        <p>
+                            Monitor fee collection and pending payments.
+                        </p>
+
+                    </div>
+
+                    <button class="primary-action">
+
+                        <i class="fa-solid fa-plus"></i>
+
+                        Record Payment
+
+                    </button>
+
+                </div>
+
+
+                <div class="stats-grid compact">
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon green">
+                            <i class="fa-solid fa-indian-rupee-sign"></i>
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Collected
+                            </span>
+
+                            <strong>
+                                ₹8.42L
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon orange">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Pending
+                            </span>
+
+                            <strong>
+                                ₹3.96L
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon blue">
+                            <i class="fa-solid fa-receipt"></i>
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Receipts
+                            </span>
+
+                            <strong>
+                                1,126
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel table-panel">
+
+                    <div class="table-tools">
+
+                        <h3>
+                            Recent Fee Records
+                        </h3>
+
+                        <div class="table-search">
+
+                            <i class="fa-solid fa-search"></i>
+
+                            <input class="local-search"
+                                   data-target="#feeTable"
+                                   placeholder="Search fee records...">
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="table-responsive">
+
+                        <table class="admin-table"
+                               id="feeTable">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Receipt</th>
+                                    <th>Student</th>
+                                    <th>Class</th>
+                                    <th>Amount</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody>
+
+                                <tr>
+                                    <td>REC-1052</td>
+                                    <td>Riya Sharma</td>
+                                    <td>VIII-A</td>
+                                    <td>₹12,500</td>
+                                    <td>17 Sep 2026</td>
+                                    <td>
+                                        <span class="badge-status active">
+                                            Paid
+                                        </span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>REC-1051</td>
+                                    <td>Aditya Kumar</td>
+                                    <td>VI-B</td>
+                                    <td>₹10,000</td>
+                                    <td>17 Sep 2026</td>
+                                    <td>
+                                        <span class="badge-status active">
+                                            Paid
+                                        </span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>REC-1050</td>
+                                    <td>Rahul Mehta</td>
+                                    <td>VII-C</td>
+                                    <td>₹8,500</td>
+                                    <td>16 Sep 2026</td>
+                                    <td>
+                                        <span class="badge-status pending">
+                                            Partial
+                                        </span>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================================
+                 RESULTS
+            ====================================================== -->
+
+            <section class="dashboard-section"
+                     id="section-results">
+
+                <div class="section-top">
+
+                    <div>
+
+                        <h2>
+                            Exams & Results
+                        </h2>
+
+                        <p>
+                            Manage examinations, marks and results.
+                        </p>
+
+                    </div>
+
+                    <button class="primary-action">
+
+                        <i class="fa-solid fa-plus"></i>
+
+                        Add Examination
+
+                    </button>
+
+                </div>
+
+
+                <div class="card-grid">
+
+                    <div class="management-card">
+
+                        <i class="fa-solid fa-file-lines"></i>
+
+                        <h3>
+                            Unit Test 1
+                        </h3>
+
+                        <p>
+                            Completed · 86% average
+                        </p>
+
+                        <button>
+                            View Results
+                        </button>
+
+                    </div>
+
+
+                    <div class="management-card">
+
+                        <i class="fa-solid fa-book"></i>
+
+                        <h3>
+                            Half Yearly
+                        </h3>
+
+                        <p>
+                            Upcoming · October 2026
+                        </p>
+
+                        <button>
+                            Manage
+                        </button>
+
+                    </div>
+
+
+                    <div class="management-card">
+
+                        <i class="fa-solid fa-award"></i>
+
+                        <h3>
+                            Merit List
+                        </h3>
+
+                        <p>
+                            Top performers
+                        </p>
+
+                        <button>
+                            View List
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================================
+                 NOTICES
+            ====================================================== -->
+
+            <section class="dashboard-section"
+                     id="section-notices">
+
+                <div class="section-top">
+
+                    <div>
+
+                        <h2>
+                            Notices
+                        </h2>
+
+                        <p>
+                            Create and manage school announcements.
+                        </p>
+
+                    </div>
+
+                    <button class="primary-action">
+
+                        <i class="fa-solid fa-plus"></i>
+
+                        Create Notice
+
+                    </button>
+
+                </div>
+
+
+                <div class="panel table-panel">
+
+                    <div class="table-tools">
+
+                        <h3>
+                            Notice Board
+                        </h3>
+
+                        <div class="table-search">
+
+                            <i class="fa-solid fa-search"></i>
+
+                            <input class="local-search"
+                                   data-target="#noticeTable"
+                                   placeholder="Search notices...">
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="table-responsive">
+
+                        <table class="admin-table"
+                               id="noticeTable">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Notice</th>
+                                    <th>Category</th>
+                                    <th>Date</th>
+                                    <th>Audience</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+                                        <strong>
+                                            Admission Open for Session 2027-28
+                                        </strong>
+                                    </td>
+
+                                    <td>
+                                        Admission
+                                    </td>
+
+                                    <td>
+                                        17 Sep 2026
+                                    </td>
+
+                                    <td>
+                                        All
+                                    </td>
+
+                                    <td>
+                                        <span class="badge-status active">
+                                            Published
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <button class="row-btn">
+                                            Edit
+                                        </button>
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        <strong>
+                                            Parent Teacher Meeting
+                                        </strong>
+                                    </td>
+
+                                    <td>
+                                        Academic
+                                    </td>
+
+                                    <td>
+                                        15 Sep 2026
+                                    </td>
+
+                                    <td>
+                                        Parents
+                                    </td>
+
+                                    <td>
+                                        <span class="badge-status active">
+                                            Published
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <button class="row-btn">
+                                            Edit
+                                        </button>
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================================
+                 EVENTS
+            ====================================================== -->
+
+            <section class="dashboard-section"
+                     id="section-events">
+
+                <div class="section-top">
+
+                    <div>
+
+                        <h2>
+                            Events
+                        </h2>
+
+                        <p>
+                            Manage school events and activities.
+                        </p>
+
+                    </div>
+
+                    <button class="primary-action">
+
+                        <i class="fa-solid fa-plus"></i>
+
+                        Add Event
+
+                    </button>
+
+                </div>
+
+
+                <div class="event-grid">
+
+                    <div class="event-card">
+
+                        <div class="event-date-box">
+
+                            <strong>
+                                25
+                            </strong>
+
+                            <span>
+                                SEP
+                            </span>
+
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Parent Teacher Meeting
+                            </h3>
+
+                            <p>
+                                <i class="fa-regular fa-clock"></i>
+                                10:00 AM · School Campus
+                            </p>
+
+                            <span class="event-tag">
+                                Academic
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="event-card">
+
+                        <div class="event-date-box">
+
+                            <strong>
+                                02
+                            </strong>
+
+                            <span>
+                                OCT
+                            </span>
+
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Gandhi Jayanti Program
+                            </h3>
+
+                            <p>
+                                <i class="fa-regular fa-clock"></i>
+                                9:00 AM · Auditorium
+                            </p>
+
+                            <span class="event-tag">
+                                Cultural
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="event-card">
+
+                        <div class="event-date-box">
+
+                            <strong>
+                                18
+                            </strong>
+
+                            <span>
+                                OCT
+                            </span>
+
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Annual Sports Day
+                            </h3>
+
+                            <p>
+                                <i class="fa-regular fa-clock"></i>
+                                8:30 AM · Sports Ground
+                            </p>
+
+                            <span class="event-tag">
+                                Sports
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================================
+                 GALLERY
+            ====================================================== -->
+
+            <section class="dashboard-section"
+                     id="section-gallery">
+
+                <div class="section-top">
+
+                    <div>
+
+                        <h2>
+                            Gallery
+                        </h2>
+
+                        <p>
+                            Manage school photographs and albums.
+                        </p>
+
+                    </div>
+
+                    <button class="primary-action">
+
+                        <i class="fa-solid fa-plus"></i>
+
+                        Add Photos
+
+                    </button>
+
+                </div>
+
+
+                <div class="gallery-grid">
+
+                    <div class="gallery-placeholder">
+
+                        <i class="fa-solid fa-image"></i>
+
+                        <h3>
+                            School Events
+                        </h3>
+
+                        <p>
+                            24 Photos
+                        </p>
+
+                    </div>
+
+
+                    <div class="gallery-placeholder">
+
+                        <i class="fa-solid fa-trophy"></i>
+
+                        <h3>
+                            Sports Day
+                        </h3>
+
+                        <p>
+                            36 Photos
+                        </p>
+
+                    </div>
+
+
+                    <div class="gallery-placeholder">
+
+                        <i class="fa-solid fa-flask"></i>
+
+                        <h3>
+                            Science Exhibition
+                        </h3>
+
+                        <p>
+                            18 Photos
+                        </p>
+
+                    </div>
+
+
+                    <div class="gallery-placeholder">
+
+                        <i class="fa-solid fa-graduation-cap"></i>
+
+                        <h3>
+                            Annual Function
+                        </h3>
+
+                        <p>
+                            42 Photos
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================================
+                 ENQUIRIES
+            ====================================================== -->
+
+            <section class="dashboard-section"
+                     id="section-enquiries">
+
+                <div class="section-top">
+
+                    <div>
+
+                        <h2>
+                            Enquiries
+                        </h2>
+
+                        <p>
+                            Manage website enquiries and parent messages.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel table-panel">
+
+                    <div class="table-tools">
+
+                        <h3>
+                            Recent Enquiries
+                        </h3>
+
+                        <div class="table-search">
+
+                            <i class="fa-solid fa-search"></i>
+
+                            <input class="local-search"
+                                   data-target="#enquiryTable"
+                                   placeholder="Search enquiries...">
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="table-responsive">
+
+                        <table class="admin-table"
+                               id="enquiryTable">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Name</th>
+                                    <th>Contact</th>
+                                    <th>Subject</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+                                        <strong>
+                                            Suresh Kumar
+                                        </strong>
+                                    </td>
+
+                                    <td>
+                                        98765 44321
+                                    </td>
+
+                                    <td>
+                                        Admission Enquiry
+                                    </td>
+
+                                    <td>
+                                        17 Sep
+                                    </td>
+
+                                    <td>
+                                        <span class="badge-status pending">
+                                            Unread
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <button class="row-btn">
+                                            Read
+                                        </button>
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        <strong>
+                                            Neha Singh
+                                        </strong>
+                                    </td>
+
+                                    <td>
+                                        99887 22110
+                                    </td>
+
+                                    <td>
+                                        Fee Structure
+                                    </td>
+
+                                    <td>
+                                        16 Sep
+                                    </td>
+
+                                    <td>
+                                        <span class="badge-status active">
+                                            Read
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <button class="row-btn">
+                                            View
+                                        </button>
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================================
+                 REPORTS
+            ====================================================== -->
+
+            <section class="dashboard-section"
+                     id="section-reports">
+
+                <div class="section-top">
+
+                    <div>
+
+                        <h2>
+                            Reports
+                        </h2>
+
+                        <p>
+                            School performance and administration reports.
+                        </p>
+
+                    </div>
+
+                    <button class="primary-action">
+
+                        <i class="fa-solid fa-download"></i>
+
+                        Export Report
+
+                    </button>
+
+                </div>
+
+
+                <div class="report-grid">
+
+                    <div class="report-card">
+
+                        <i class="fa-solid fa-user-graduate"></i>
+
+                        <h3>
+                            Student Report
+                        </h3>
+
+                        <p>
+                            Student strength, class-wise data and status.
+                        </p>
+
+                        <button>
+                            Generate
+                        </button>
+
+                    </div>
+
+
+                    <div class="report-card">
+
+                        <i class="fa-solid fa-calendar-check"></i>
+
+                        <h3>
+                            Attendance Report
+                        </h3>
+
+                        <p>
+                            Daily and monthly attendance analysis.
+                        </p>
+
+                        <button>
+                            Generate
+                        </button>
+
+                    </div>
+
+
+                    <div class="report-card">
+
+                        <i class="fa-solid fa-money-bill"></i>
+
+                        <h3>
+                            Fee Report
+                        </h3>
+
+                        <p>
+                            Collected and pending fee summary.
+                        </p>
+
+                        <button>
+                            Generate
+                        </button>
+
+                    </div>
+
+
+                    <div class="report-card">
+
+                        <i class="fa-solid fa-chart-column"></i>
+
+                        <h3>
+                            Result Report
+                        </h3>
+
+                        <p>
+                            Exam performance and marks analysis.
+                        </p>
+
+                        <button>
+                            Generate
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================================
+                 SETTINGS
+            ====================================================== -->
+
+            <section class="dashboard-section" id="section-settings">
+
+                <div class="section-top">
+
+                    <div>
+
+                        <h2>
+                            Settings
+                        </h2>
+
+                        <p>
+                            Manage admin profile and dashboard preferences.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="settings-grid">
+
+                    <div class="panel settings-panel">
+
+                        <h3>
+                            Admin Profile
+                        </h3>
+
+
+                        <div class="profile-large">
+
+                            <div class="profile-avatar large">
+                                AA
+                            </div>
+
+                            <div>
+
+                                <h4>
+                                    Admin
+                                </h4>
+
+                                <p>
+                                    School Administrator
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <label>
+
+                            Full Name
+
+                            <input type="text"
+                                   value="Admin">
+
+                        </label>
+
+
+                        <label>
+
+                            Email
+
+                            <input type="email"
+                                   value="admin@shantiniketan.com">
+
+                        </label>
+
+
+                        <label>
+
+                            Phone
+
+                            <input type="text"
+                                   value="+91-9876543210">
+
+                        </label>
+
+
+                        <button class="primary-action">
+                            Save Changes
+                        </button>
+
+                    </div>
+
+
+                    <div class="panel settings-panel">
+
+                        <h3>
+                            System Preferences
+                        </h3>
+
+
+                        <label class="switch-row">
+
+                            <span>
+                                Email Notifications
+                            </span>
+
+                            <input type="checkbox" checked>
+
+                            <span class="fake-switch"></span>
+
+                        </label>
+
+
+                        <label class="switch-row">
+
+                            <span>
+                                Admission Alerts
+                            </span>
+
+                            <input type="checkbox" checked>
+
+                            <span class="fake-switch"></span>
+
+                        </label>
+
+
+                        <label class="switch-row">
+
+                            <span>
+                                Fee Reminders
+                            </span>
+
+                            <input type="checkbox">
+
+                            <span class="fake-switch"></span>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+
+        <footer class="dashboard-footer">
+
+            © 2026 Shanti Niketan Public School · Admin Panel
+
+        </footer>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     MOBILE OVERLAY
+========================================================= -->
+
+<div class="mobile-overlay" id="mobileOverlay"></div>
+
+
+<!-- =========================================================
+     ADMISSION APPLICATION MODAL
+========================================================= -->
+
+<div class="modal fade"
+     id="applicationModal"
+     tabindex="-1"
+     role="dialog"
+     aria-hidden="true">
+
+    <div class="modal-dialog modal-xl modal-dialog-scrollable"
+         role="document">
+
+        <div class="modal-content application-modal">
+
+
+            <div class="modal-header">
+
+                <div>
+
+                    <h5 class="modal-title">
+
+                        <i class="fa-solid fa-file-lines"></i>
+
+                        Admission Application
+
+                    </h5>
+
+
+                    <span class="modal-application-id"
+                          id="modalApplicationId">
+
+                        ADM001
+
+                    </span>
+
+                </div>
+                <button type="button"
+                        class="close"
+                        data-dismiss="modal">
+
+                    <span>
+                        &times;
+                    </span>
+
+                </button>
+
+            </div>
+            <div class="modal-body">
+                <!-- STUDENT -->
+                <div class="application-detail-section">
+                    <div class="detail-section-title">
+                        <i class="fa-solid fa-user-graduate"></i>
+                        <h4>
+                            Student Information
+                        </h4>
+
+                    </div>
+
+
+                    <div class="detail-grid">
+
+                        <div class="detail-item">
+                            <label>First Name</label>
+                            <p id="modalFirstName">-</p>
+                        </div>
+
+                        <div class="detail-item">
+                            <label>Middle Name</label>
+                            <p id="modalMiddleName">-</p>
+                        </div>
+
+                        <div class="detail-item">
+                            <label>Last Name</label>
+                            <p id="modalLastName">-</p>
+                        </div>
+
+                        <div class="detail-item">
+                            <label>Date of Birth</label>
+                            <p id="modalDOB">-</p>
+                        </div>
+
+                        <div class="detail-item">
+                            <label>Gender</label>
+                            <p id="modalGender">-</p>
+                        </div>
+
+                        <div class="detail-item">
+                            <label>Blood Group</label>
+                            <p id="modalBlood">-</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ACADEMIC -->
+
+                <div class="application-detail-section">
+
+                    <div class="detail-section-title">
+
+                        <i class="fa-solid fa-book-open"></i>
+
+                        <h4>
+                            Academic Information
+                        </h4>
+
+                    </div>
+
+
+                    <div class="detail-grid">
+
+                        <div class="detail-item">
+                            <label>Applying For Class</label>
+                            <p id="modalClass">-</p>
+                        </div>
+
+                        <div class="detail-item">
+                            <label>Academic Year</label>
+                            <p id="modalYear">-</p>
+                        </div>
+
+                        <div class="detail-item">
+                            <label>Previous School</label>
+                            <p id="modalPreviousSchool">-</p>
+                        </div>
+
+                        <div class="detail-item">
+                            <label>Previous Class</label>
+                            <p id="modalPreviousClass">-</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PARENT -->
+
+                <div class="application-detail-section">
+
+                    <div class="detail-section-title">
+
+                        <i class="fa-solid fa-people-roof"></i>
+
+                        <h4>
+                            Parent / Guardian Information
+                        </h4>
+
+                    </div>
+
+
+                    <div class="detail-grid">
+
+                        <div class="detail-item">
+                            <label>Father's Name</label>
+                            <p id="modalFather">-</p>
+                        </div>
+
+                        <div class="detail-item">
+                            <label>Mother's Name</label>
+                            <p id="modalMother">-</p>
+                        </div>
+
+                        <div class="detail-item">
+                            <label>Guardian's Name</label>
+                            <p id="modalGuardian">-</p>
+                        </div>
+
+                        <div class="detail-item">
+                            <label>Relationship</label>
+                            <p id="modalRelationship">-</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONTACT -->
+
+                <div class="application-detail-section">
+
+                    <div class="detail-section-title">
+
+                        <i class="fa-solid fa-address-book"></i>
+
+                        <h4>
+                            Contact Information
+                        </h4>
+
+                    </div>
+
+
+                    <div class="detail-grid">
+
+                        <div class="detail-item">
+                            <label>Mobile Number</label>
+                            <p id="modalMobile">-</p>
+                        </div>
+
+                        <div class="detail-item">
+                            <label>Email Address</label>
+                            <p id="modalEmail">-</p>
+                        </div>
+
+                        <div class="detail-item detail-full">
+                            <label>Full Address</label>
+                            <p id="modalAddress">-</p>
+                        </div>
+
+                        <div class="detail-item">
+                            <label>City</label>
+                            <p id="modalCity">-</p>
+                        </div>
+
+                        <div class="detail-item">
+                            <label>State</label>
+                            <p id="modalState">-</p>
+                        </div>
+
+                        <div class="detail-item">
+                            <label>PIN Code</label>
+                            <p id="modalPin">-</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ADDITIONAL -->
+
+                <div class="application-detail-section">
+
+                    <div class="detail-section-title">
+
+                        <i class="fa-solid fa-circle-info"></i>
+
+                        <h4>
+                            Additional Information
+                        </h4>
+                    </div>
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <label>Nationality</label>
+                            <p id="modalNationality">-</p>
+                        </div>
+                        <div class="detail-item">
+                            <label>Religion</label>
+                            <p id="modalReligion">-</p>
+                        </div>
+
+                        <div class="detail-item">
+                            <label>Any Disabilities</label>
+                            <p id="modalDisability">-</p>
+                        </div>
+
+                        <div class="detail-item detail-full">
+                            <label>Special Information</label>
+                            <p id="modalSpecial">-</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- STATUS -->
+
+                <div class="application-status-area">
+
+                    <label>
+                        Application Status
+                    </label>
+
+                    <select id="modalStatus">
+
+                        <option value="Pending">
+                            Pending
+                        </option>
+
+                        <option value="Approved">
+                            Approved
+                        </option>
+
+                        <option value="Rejected">
+                            Rejected
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <button type="button"
+                        class="modal-btn approve-modal-btn"
+                        id="approveApplication">
+
+                    <i class="fa-solid fa-check"></i>
+
+                    Approve
+
+                </button>
+
+
+                <button type="button"
+                        class="modal-btn reject-modal-btn"
+                        id="rejectApplication">
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                    Reject
+
+                </button>
+
+
+                <button type="button"
+                        class="modal-btn close-modal-btn"
+                        data-dismiss="modal">
+
+                    Close
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     TOAST
+========================================================= -->
+
+<div class="toast-message"
+     id="toastMessage">
+
+    <i class="fa-solid fa-circle-check"></i>
+
+    <span>
+        Action completed.
+    </span>
+
+</div>
+
+
+<!-- =========================================================
+     JAVASCRIPT LIBRARIES
+========================================================= -->
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+
+<!-- Dashboard JavaScript -->
+<script src="{% static 'JS/adminDashboard.js' %}"></script>
+
+
+<!-- =========================================================
+     DASHBOARD JAVASCRIPT
+========================================================= -->
+
+
+
+</body>
+
+</html>

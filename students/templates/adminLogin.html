@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous" />
+    <link href="{% static 'CSS/adminLogin.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
+        integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>AdminLogin</title>
+</head>
+<body>
+    <section class="que1">
+        <div class="container">
+            <div class="row u">
+                <div class="col-md-1">
+                    <div class="logo-mark1">
+                        <i class="fa-solid fa-school"></i>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="brand-text1">
+                        <strong>SHANTI NIKETAN</strong>
+                        <strong>PUBLIC SCHOOL</strong>
+                        <small>Hazaribagh, Jharkhand</small>
+                    </div>
+                </div>
+                <div class="col-md-6 v">
+                    <h5>
+                        <a href="{% url 'index_page' %}"><i class="fa-solid fa-arrow-left-long"></i>Back to home</a>
+                    </h5>
+                    <strong>Admin</strong>
+                </div>
+                
+            </div>
+        </div>
+        {% include "message.html" %}
+        <div class="l2">
+            <img src="{% static 'Image/School_Image.png' %}" height="480px" width="430px">
+        </div>
+        <div class="l3">
+            <h3>Welocome Back!</h3>
+            <span>Sign to your school portal account</span>
+            <div class="l4">
+                <form action="{% url 'login_user' %}" method="post">
+                    {% csrf_token %}
+                    <label for="fname">Email Addres:</label>
+                    <br>
+                    <input type="text" id="email" name="email" placeholder="Enter your email"><br><br>
+                    <label for="lname">Password:</label>
+                    <br>
+                    <input type="text" id="Password" name="password" placeholder="Enter your password"><br><br>
+                    <button type="submit" class="btn btn-primary login_button">Login</button>
+                </form>
+                <div class="l41">
+                    <input type="checkbox" id="rememberMe" name="remember">
+                    <label for="rememberMe">Remember me</label>
+                    <a href="#">Forget Password</a>
+                </div>
+                <div class="l42">
+                    <hr><span>or continue with</span><hr>
+                </div>
+                <div class="l43">
+                    <div class="l43a">
+                        <i class="fa-brands fa-google"></i>
+                        <a href="">Google</a>
+                    </div>
+                    <div class="l43b">
+                        <i class="fa-brands fa-microsoft"></i>
+                        <a href="#">Microsoft</a>
+                    </div>
+                </div>
+                <div class="l44">
+                    <span>Don't have an account</span>
+                    <a href="{% url 'admin_reg_page' %}">Register Now</a>
+                </div>
+            </div>
+        </div>
+        <section class="l111">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p><a class="href">© 2026 Shanti Niketan Public School. All Rights Reserved.</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+</body>
+</html>

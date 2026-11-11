@@ -1,0 +1,183 @@
+@media (max-width: 2560px) {
+    body {
+        margin: 0;
+        min-height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .que1 {
+        height: 600px;
+        width: 800px;
+        border: solid grey 1px;
+        border-radius: 5px;
+    }
+
+    .logo-mark1 {
+        height: 46px;
+        width: 46px;
+        border-radius: 10px;
+        background: #0b5dcc;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        margin-right: 10px;
+        margin-top: 8px;
+    }
+
+    .u {
+        background: #082d63;
+        height: 70px;
+    }
+
+    .brand-text1 {
+        color: white;
+        margin-top: 5px;
+        margin-left: -10px;
+    }
+
+    .que1 a {
+        color: white;
+    }
+
+    .v {
+        margin-top: 10px;
+    }
+    .v a {
+        margin-left: 210px;
+    }
+    .que2 {
+        padding: 45px 35px;
+        background: white;
+    }
+    .que2 .container {
+        max-width: 100%;
+    }
+    .section-tag {
+        display: inline-block;
+        font-size: 12px;
+        font-weight: bold;
+        color: #0b5dcc;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+    }
+    .que2 h2 {
+        color: #082d63;
+        font-size: 30px;
+        font-weight: 700;
+        margin-bottom: 15px;
+    }
+    .que2 h2 span {
+        color: #0b5dcc;
+    }
+
+    .que2>.container>.row>.col-md-5>p {
+        color: #666;
+        font-size: 14px;
+        line-height: 1.7;
+
+        margin-bottom: 25px;
+    }
+    .contact-info {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 20px;
+    }
+    .contact-info>i {
+        width: 38px;
+        height: 38px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        background: #eaf2ff;
+        color: #0b5dcc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 12px;
+    }
+    .contact-info strong {
+        display: block;
+        color: #082d63;
+        font-size: 14px;
+        margin-bottom: 3px;
+    }
+    .contact-info p {
+        margin: 0;
+
+        color: #666;
+        font-size: 13px;
+        line-height: 1.5;
+    }
+    .contact-form {
+        background: #f8fafc;
+        padding: 25px;
+        border-radius: 8px;
+        border: 1px solid #e1e7ef;
+    }
+    .contact-form .row {
+        margin-left: -7px;
+        margin-right: -7px;
+    }
+    .contact-form .row>div {
+        padding-left: 7px;
+        padding-right: 7px;
+    }
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        border: 1px solid #d5dce5;
+        border-radius: 5px;
+        padding: 12px 14px;
+        font-size: 14px;
+        outline: none;
+        background: white;
+        margin-bottom: 15px;
+    }
+    .contact-form input {
+        height: 45px;
+    }
+
+    .contact-form textarea {
+        resize: vertical;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+        border-color: #0b5dcc;
+    }
+    .primary-btn {
+        background: #0b5dcc;
+        color: white;
+        border: none;
+        padding: 11px 20px;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+    .primary-btn:hover {
+        background: #082d63;
+        color: white;
+    }
+    .primary-btn i {
+        margin-left: 7px;
+    }
+    .form-message {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 1920px) {}
+
+@media (max-width: 1440px) {}
+
+@media (max-width: 1024px) {}
+
+@media (max-width: 768px) {}
+
+@media (max-width: 575px) {}
+
+@media (max-width: 425px) {}
+
+@media (max-width: 375px) {}

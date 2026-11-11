@@ -1,0 +1,221 @@
+@media (max-width:2560px) {
+    .nav {
+        background-color: rgb(31, 31, 93);
+        padding: 10px 0px;
+    }
+
+    .nav a {
+        color: white;
+    }
+
+    .nav1 {
+        text-align: right;
+    }
+
+    .nav1 a {
+        color: white;
+        margin-left: 0px;
+    }
+
+    .about-banner {
+        height: 90px;
+        background: linear-gradient(rgba(4, 54, 110, .75), rgba(4, 54, 110, .75));
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center
+    }
+
+    .banner-overlay {
+        width: 70%
+    }
+
+    .about-banner h3 {
+        color: #fff;
+        font-size: 45px;
+        font-weight: 700;
+        margin-bottom: 12px
+    }
+
+    .about-banner p,
+    a {
+        color: #fff;
+        margin-top: -10px;
+    }
+
+    .about-banner:hover a {
+        color: white;
+    }
+
+    .about-banner i {
+        margin: 0 10px
+    }
+
+    .hero {
+        min-height: 390px;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(rgba(11, 61, 145, .9), rgba(19, 92, 177, .85));
+        color: #fff
+    }
+
+    .hero-content {
+        max-width: 720px;
+        padding: 70px 0
+    }
+
+    .small-title {
+        letter-spacing: 2px;
+        font-size: 14px;
+        font-weight: bold
+    }
+
+    .hero h1 {
+        font-size: 58px;
+        font-weight: 700;
+        margin: 10px 0
+    }
+
+    .hero p:last-child {
+        font-size: 19px;
+        max-width: 650px
+    }
+
+    .section-title p {
+        color: #135cb1;
+        font-weight: bold;
+        letter-spacing: 1.5px;
+        margin-bottom: 4px
+    }
+
+    .section-title h2 {
+        font-size: 34px;
+        font-weight: 700;
+        color: #17365d
+    }
+
+    .line {
+        width: 65px;
+        height: 4px;
+        background: #135cb1;
+        margin: 13px auto 0;
+        border-radius: 5px
+    }
+
+    .intro h3 {
+        color: #17365d;
+        font-weight: 700
+    }
+
+    .academic-highlight {
+        background: #f2f7ff;
+        border-left: 5px solid #135cb1;
+        padding: 30px;
+        border-radius: 8px
+    }
+
+    .highlight-icon,
+    .card-icon {
+        width: 65px;
+        height: 65px;
+        border: 2px solid #135cb1;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #135cb1;
+        font-size: 26px;
+        margin-bottom: 18px
+    }
+
+    .programs,
+    .features {
+        background: #f7faff
+    }
+
+    .cards {
+        display: flex;
+        gap: 25px;
+        justify-content: center;
+        flex-wrap: wrap
+    }
+
+    .academic-card {
+        flex: 1 1 280px;
+        max-width: 360px;
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        border: 1px solid #e0e8f2;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, .06);
+        transition: .3s
+    }
+
+    .academic-card:hover,
+    .feature-box:hover {
+        transform: translateY(-7px)
+    }
+
+    .academic-card h3 {
+        color: #17365d;
+        font-size: 23px
+    }
+
+    .subject-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px
+    }
+
+    .subject {
+        flex: 1 1 30%;
+        min-width: 220px;
+        border: 1px solid #dce5f0;
+        border-radius: 8px;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        font-weight: 600;
+        background: #fff
+    }
+
+    .subject i {
+        color: #135cb1;
+        font-size: 25px
+    }
+
+    .feature-box {
+        flex: 1 1 210px;
+        padding: 25px;
+        background: #fff;
+        border: 1px solid #e0e8f2;
+        border-radius: 10px;
+        text-align: center;
+        transition: .3s
+    }
+
+    .feature-box>i {
+        font-size: 32px;
+        color: #135cb1;
+        margin-bottom: 12px
+    }
+
+    .feature-box h4 {
+        color: #17365d
+    }
+
+    footer {
+        background: rgb(31, 31, 93);
+        color: #fff;
+        padding: 20px 0
+    }
+
+    footer hr {
+        border-top: 1px solid rgba(255, 255, 255, .7)
+    }
+
+    footer p {
+        margin: 0
+    }
+}

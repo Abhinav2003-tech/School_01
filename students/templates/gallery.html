@@ -1,0 +1,202 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Gallery{% endblock %}
+
+{% block content %}
+<body>
+    
+    <section class="about-banner">
+        <div class="banner-overlay">
+            <div class="container">
+                <h3>Gallery</h3>
+                <p><a href="{% url 'index_page' %}">Home</a> <i class="fa-solid fa-angle-right"></i> Gallery</p>
+            </div>
+        </div>
+    </section>
+    <!-- ================= GALLERY ================= -->
+    <section class="gallery-section">
+
+        <div class="container">
+
+            <div class="section-heading text-center">
+
+                <div class="small-line"></div>
+
+                <h2>
+                    Memories of Our <span>School</span>
+                </h2>
+
+                <p>
+                    A glimpse of learning, celebrations, sports and
+                    activities at our school.
+                </p>
+
+            </div>
+            <!--
+                IMAGE AREA
+
+                Replace only the src="..." values below with your own images.
+
+                Recommended image size:
+                Width  : 800px
+                Height : 550px
+
+                CSS automatically keeps every image inside the same
+                gallery area.
+            -->
+
+            <div class="gallery-grid">
+
+
+                <!-- IMAGE 1 -->
+                <div class="gallery-card">
+
+                    <div class="image-box">
+                        <img src="{% static 'Image/school_Image.png' %}"
+                            alt="School Campus">
+
+                        <div class="image-overlay">
+                            <i class="fa-solid fa-expand"></i>
+                        </div>
+                    </div>
+
+                    <div class="gallery-caption">
+                        <h3>School Campus</h3>
+                        <p>Our beautiful school environment</p>
+                    </div>
+
+                </div>
+
+
+                <!-- IMAGE 2 -->
+                <div class="gallery-card">
+
+                    <div class="image-box">
+                        <img src="{% static 'Image/school_activities.jpg' %}"
+                            alt="Classroom">
+
+                        <div class="image-overlay">
+                            <i class="fa-solid fa-expand"></i>
+                        </div>
+                    </div>
+
+                    <div class="gallery-caption">
+                        <h3>Classroom Activities</h3>
+                        <p>Interactive learning experiences</p>
+                    </div>
+
+                </div>
+
+
+                <!-- IMAGE 3 -->
+                <div class="gallery-card">
+
+                    <div class="image-box">
+                        <img src="{% static 'Image/sports_activities.jpg' %}"
+                            alt="Sports Activity">
+
+                        <div class="image-overlay">
+                            <i class="fa-solid fa-expand"></i>
+                        </div>
+                    </div>
+
+                    <div class="gallery-caption">
+                        <h3>Sports Activities</h3>
+                        <p>Building teamwork and confidence</p>
+                    </div>
+
+                </div>
+                <!-- IMAGE 4 -->
+                <div class="gallery-card">
+
+                    <div class="image-box">
+                        <img src="{% static 'Image/image_db3.png' %}"
+                            alt="Annual Function">
+
+                        <div class="image-overlay">
+                            <i class="fa-solid fa-expand"></i>
+                        </div>
+                    </div>
+
+                    <div class="gallery-caption">
+                        <h3>Annual Function</h3>
+                        <p>Celebrating talent and creativity</p>
+                    </div>
+
+                </div>
+
+
+                <!-- IMAGE 5 -->
+                <div class="gallery-card">
+
+                    <div class="image-box">
+                        <img src="{% static 'Image/cultural_events.jpg' %}"
+                            alt="Cultural Event">
+
+                        <div class="image-overlay">
+                            <i class="fa-solid fa-expand"></i>
+                        </div>
+                    </div>
+
+                    <div class="gallery-caption">
+                        <h3>Cultural Events</h3>
+                        <p>Celebrating culture and traditions</p>
+                    </div>
+
+                </div>
+
+
+                <!-- IMAGE 6 -->
+                <div class="gallery-card">
+
+                    <div class="image-box">
+                        <img src="{% static 'Image/student_activities.jpg' %}"
+                            alt="Students">
+                        <div class="image-overlay">
+                            <i class="fa-solid fa-expand"></i>
+                        </div>
+                    </div>
+
+                    <div class="gallery-caption">
+                        <h3>Student Activities</h3>
+                        <p>Learning beyond the classroom</p>
+                    </div>
+
+                </div>
+
+
+                <!-- IMAGE 7 -->
+                <div class="gallery-card">
+
+                    <div class="image-box">
+                        <img src="{% static 'Image/school_celeberation.jpg' %}"
+                            alt="School Celebration">
+
+                        <div class="image-overlay">
+                            <i class="fa-solid fa-expand"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-caption">
+                        <h3>School Celebration</h3>
+                        <p>Special moments together</p>
+                    </div>
+                </div>
+                <!-- IMAGE 8 -->
+                <div class="gallery-card">
+                    <div class="image-box">
+                        <img src="{% static 'Image/school_events.jpg' %}"
+                            alt="School Event">
+                        <div class="image-overlay">
+                            <i class="fa-solid fa-expand"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-caption">
+                        <h3>School Events</h3>
+                        <p>Memorable moments of our school</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends 'base2.html' %}
+{% load static %}
+
+{% block title %}Admin - Enquiries{% endblock %}
+{% block dash_active %}{% endblock %}
+{% block enq_active %}active{% endblock %}
+{% block page_title %}Admin - Enquiries{% endblock %}
+
+{% block content %}
+
+<section class="dashboard-section active-section" id="section-enquiries">
+
+    <div class="section-top">
+        <div>
+            <h2>Enquiries</h2>
+            <p>Manage website enquiries and parent messages.</p>
+        </div>
+    </div>
+
+    <div class="panel table-panel">
+
+        <div class="table-tools">
+            <h3>Recent Enquiries</h3>
+
+            <div class="table-search">
+                <i class="fa-solid fa-search"></i>
+                <input
+                    class="local-search"
+                    data-target="#enquiryTable"
+                    placeholder="Search enquiries..."
+                >
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="admin-table" id="enquiryTable">
+
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Subject</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for e in enquiries_data %}
+                    <tr>
+                        <td>
+                            <strong>{{ e.name }}</strong>
+                        </td>
+
+                        <td>{{ e.email }}</td>
+
+                        <td>{{ e.subject }}</td>
+
+                        <td>
+                            {{ e.date|date:"d M" }}
+                        </td>
+
+                        <td>
+                            <span class="badge-status pending">
+                                Unread
+                            </span>
+                        </td>
+
+                        <td>
+                            <button type="button" class="row-btn">
+                                Read
+                            </button>
+                        </td>
+                    </tr>
+
+                    {% empty %}
+                    <tr>
+                        <td colspan="6" class="text-center">
+                            No enquiries found.
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

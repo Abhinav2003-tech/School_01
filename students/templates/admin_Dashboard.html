@@ -1,0 +1,347 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block title %}Admin_Dashboard{% endblock %}
+
+{% block content %}
+<section class="dashboard-section active-section" id="section-dashboard">
+    <div class="welcome-row">
+        <div>
+            <h2>
+                Welcome back, Admin!
+            </h2>
+            <p>
+                Here is what's happening at
+                Shanti Niketan Public School today.
+            </p>
+        </div>
+        <button class="date-btn">
+            <i class="fa-regular fa-calendar"></i>
+            <p id="currentDate"></p>
+
+            <script>
+                let today = new Date();
+
+                document.getElementById("currentDate").innerHTML =
+                    today.toLocaleDateString('en-IN', {
+                        weekday: 'short',
+                        day: '2-digit',
+                        month: 'long',
+                        year: 'numeric'
+                    });
+            </script>
+        </button>
+    </div>
+    <!-- STATISTICS -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-icon blue">
+                <i class="fa-solid fa-user-graduate"></i>
+            </div>
+            <div>
+                <span>Total Students</span>
+                <strong>1,524</strong>
+                <small>
+                    <b>+5.2%</b> this session
+                </small>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon green">
+                <i class="fa-solid fa-chalkboard-user"></i>
+            </div>
+            <div>
+                <span>Total Teachers</span>
+                <strong>82</strong>
+                <small>
+                    <b>+3</b> new teachers
+                </small>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon orange">
+                <i class="fa-solid fa-calendar-check"></i>
+            </div>
+            <div>
+                <span>Today's Attendance</span>
+                <strong>94.6%</strong>
+                <small>
+                    <b>+1.8%</b> from yesterday
+                </small>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon purple">
+                <i class="fa-solid fa-indian-rupee-sign"></i>
+            </div>
+            <div>
+                <span>Fees Collected</span>
+                <strong>₹8.42L</strong>
+                <small>
+                    <b>68%</b> of target
+                </small>
+            </div>
+        </div>
+    </div>
+    <!-- DASHBOARD PANELS -->
+    <div class="content-grid">
+        <div class="panel">
+            <div class="panel-header">
+                <div>
+                    <h3>
+                        Attendance Overview
+                    </h3>
+                    <p>
+                        Monthly student attendance
+                    </p>
+                </div>
+                <select>
+                    <option>
+                        September 2026
+                    </option>
+
+                    <option>
+                        August 2026
+                    </option>
+                </select>
+            </div>
+            <div class="chart">
+                <div class="y-labels">
+                    <span>100%</span>
+                    <span>80%</span>
+                    <span>60%</span>
+                    <span>40%</span>
+                    <span>20%</span>
+                    <span>0%</span>
+                </div>
+                <div class="chart-area">
+                    <div class="grid-line" style="top:0"></div>
+                    <div class="grid-line" style="top:20%"></div>
+                    <div class="grid-line" style="top:40%"></div>
+                    <div class="grid-line" style="top:60%"></div>
+                    <div class="grid-line" style="top:80%"></div>
+                    <div class="grid-line" style="top:100%"></div>
+                    <div class="bars">
+                        <div class="bar-wrap">
+                            <div class="bar" style="height:88%"></div>
+                            <span>1</span>
+                        </div>
+                        <div class="bar-wrap">
+                            <div class="bar" style="height:92%"></div>
+                            <span>2</span>
+                        </div>
+                        <div class="bar-wrap">
+                            <div class="bar" style="height:90%"></div>
+                            <span>3</span>
+                        </div>
+                        <div class="bar-wrap">
+                            <div class="bar" style="height:95%"></div>
+                            <span>4</span>
+                        </div>
+                        <div class="bar-wrap">
+                            <div class="bar" style="height:91%"></div>
+                            <span>5</span>
+                        </div>
+                        <div class="bar-wrap">
+                            <div class="bar" style="height:96%"></div>
+                            <span>6</span>
+                        </div>
+                        <div class="bar-wrap">
+                            <div class="bar" style="height:93%"></div>
+                            <span>7</span>
+                        </div>
+                        <div class="bar-wrap">
+                            <div class="bar" style="height:97%"></div>
+                            <span>8</span>
+                        </div>
+                        <div class="bar-wrap">
+                            <div class="bar" style="height:94%"></div>
+                            <span>9</span>
+                        </div>
+                        <div class="bar-wrap">
+                            <div class="bar" style="height:96%"></div>
+                            <span>10</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- QUICK ACTIONS -->
+        <div class="panel">
+            <div class="panel-header">
+                <div>
+                    <h3>
+                        Quick Actions
+                    </h3>
+                    <p>
+                        Frequently used actions
+                    </p>
+                </div>
+            </div>
+            <div class="quick-actions">
+                <button data-section="students">
+                    <i class="fa-solid fa-user-plus"></i>
+                    <span>
+                        Add Student
+                    </span>
+                </button>
+                <button data-section="teachers">
+                    <i class="fa-solid fa-user-tie"></i>
+                    <span>
+                        Add Teacher
+                    </span>
+                </button>
+                <button data-section="notices">
+                    <i class="fa-solid fa-bullhorn"></i>
+                    <span>
+                        New Notice
+                    </span>
+                </button>
+                <button data-section="events">
+                    <i class="fa-solid fa-calendar-plus"></i>
+                    <span>
+                        Add Event
+                    </span>
+                </button>
+                <button data-section="fees">
+                    <i class="fa-solid fa-receipt"></i>
+                    <span>
+                        Fee Record
+                    </span>
+                </button>
+                <button data-section="reports">
+                    <i class="fa-solid fa-file-export"></i>
+                    <span>
+                        Reports
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- RECENT STUDENTS -->
+    <div class="panel table-panel">
+        <div class="panel-header">
+            <div>
+                <h3>
+                    Recent Students
+                </h3>
+                <p>
+                    Recently added students
+                </p>
+            </div>
+            <button class="view-all" data-section="students">
+                View All
+            </button>
+        </div>
+        <div class="table-responsive">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Student</th>
+                        <th>Class</th>
+                        <th>Roll No.</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="person">
+                                <span class="person-avatar">
+                                    RS
+                                </span>
+                                <div>
+                                    <strong>
+                                        Riya Sharma
+                                    </strong>
+                                    <small>
+                                        STU-2026-101
+                                    </small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>VIII-A</td>
+                        <td>18</td>
+                        <td>
+                            <span class="badge-status active">
+                                Active
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="person">
+                                <span class="person-avatar">
+                                    AK
+                                </span>
+                                <div>
+                                    <strong>
+                                        Aditya Kumar
+                                    </strong>
+                                    <small>
+                                        STU-2026-102
+                                    </small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>VI-B</td>
+                        <td>24</td>
+                        <td>
+                            <span class="badge-status active">
+                                Active
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="person">
+                                <span class="person-avatar">
+                                    PS
+                                </span>
+                                <div>
+                                    <strong>
+                                        Priya Singh
+                                    </strong>
+                                    <small>
+                                        STU-2026-103
+                                    </small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>IX-A</td>
+                        <td>11</td>
+                        <td>
+                            <span class="badge-status active">
+                                Active
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="person">
+                                <span class="person-avatar">
+                                    RM
+                                </span>
+                                <div>
+                                    <strong>
+                                        Rahul Mehta
+                                    </strong>
+                                    <small>
+                                        STU-2026-104
+                                    </small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>VII-C</td>
+                        <td>31</td>
+                        <td>
+                            <span class="badge-status pending">
+                                Pending
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}

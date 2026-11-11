@@ -1,0 +1,250 @@
+@media (max-width:2560px) {
+    .nav {
+        background-color: rgb(31, 31, 93);
+        padding: 10px 0px;
+    }
+
+    .nav a {
+        color: white;
+    }
+
+    .nav1 {
+        text-align: right;
+    }
+
+    .nav1 a {
+        color: white;
+        margin-left: 0px;
+    }
+
+    .about-banner {
+        height: 90px;
+        background: linear-gradient(rgba(4, 54, 110, .75), rgba(4, 54, 110, .75));
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center
+    }
+
+    .banner-overlay {
+        width: 70%
+    }
+
+    .about-banner h3 {
+        color: #fff;
+        font-size: 45px;
+        font-weight: 700;
+        margin-bottom: 12px
+    }
+
+    .about-banner p,
+    a {
+        color: #fff;
+        margin-top: -10px;
+    }
+
+    .about-banner:hover a {
+        color: white;
+    }
+
+    .about-banner i {
+        margin: 0 10px
+    }
+
+    .gallery-header h1 {
+        font-size: 44px;
+        font-weight: 700;
+        margin-bottom: 12px;
+    }
+
+    .gallery-header h1 span {
+        color: #9bd1ff;
+    }
+
+    .gallery-header p {
+        max-width: 720px;
+        margin: auto;
+        font-size: 17px;
+        line-height: 1.7;
+    }
+
+
+    /* ================= GALLERY SECTION ================= */
+
+    .gallery-section {
+        padding: 75px 0;
+    }
+
+    .section-heading {
+        margin-bottom: 45px;
+    }
+
+    .small-line {
+        width: 55px;
+        height: 4px;
+        background: #0b69d1;
+        border-radius: 5px;
+        margin: 0 auto 15px;
+    }
+
+    .section-heading h2 {
+        color: #063b78;
+        font-size: 34px;
+        font-weight: 700;
+    }
+
+    .section-heading h2 span {
+        color: #0b69d1;
+    }
+
+    .section-heading p {
+        color: #71839b;
+        max-width: 700px;
+        margin: auto;
+        line-height: 1.7;
+    }
+
+
+    /* ================= IMAGE GRID ================= */
+
+    .gallery-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 28px;
+    }
+
+
+    /*
+    IMPORTANT IMAGE AREA
+
+    Every image gets the SAME:
+    width  : 100%
+    height : 250px
+
+    object-fit: cover makes different image sizes
+    fit neatly inside this fixed area.
+*/
+
+    .gallery-card {
+        flex: 0 0 calc(25% - 21px);
+        background: #ffffff;
+        border: 1px solid #e2ebf5;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(18, 70, 120, 0.09);
+
+        transition: transform 0.3s ease,
+            box-shadow 0.3s ease;
+    }
+
+    .gallery-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 14px 35px rgba(18, 70, 120, 0.15);
+    }
+
+
+    /* IMAGE CONTAINER */
+
+    .image-box {
+        width: 100%;
+        height: 250px;
+        position: relative;
+        overflow: hidden;
+        background: #eaf3ff;
+    }
+
+
+    /* YOUR IMAGE */
+
+    .image-box img {
+        width: 100%;
+        height: 250px;
+
+        /*
+        cover = fills the complete image area
+        without stretching the image.
+    */
+        object-fit: cover;
+
+        display: block;
+
+        transition: transform 0.4s ease;
+    }
+
+
+    /* IMAGE HOVER */
+
+    .gallery-card:hover .image-box img {
+        transform: scale(1.06);
+    }
+
+
+    /* IMAGE OVERLAY */
+
+    .image-overlay {
+        position: absolute;
+        inset: 0;
+
+        background: rgba(6, 59, 120, 0.45);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        opacity: 0;
+
+        transition: opacity 0.3s ease;
+    }
+
+    .gallery-card:hover .image-overlay {
+        opacity: 1;
+    }
+
+    .image-overlay i {
+        width: 48px;
+        height: 48px;
+
+        border: 2px solid white;
+        border-radius: 50%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        color: white;
+        font-size: 18px;
+    }
+
+
+    /* ================= CAPTION ================= */
+
+    .gallery-caption {
+        padding: 18px;
+    }
+
+    .gallery-caption h3 {
+        color: #063b78;
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 6px;
+    }
+
+    .gallery-caption p {
+        color: #71839b;
+        font-size: 14px;
+        margin: 0;
+    }
+    footer {
+        background: rgb(31, 31, 93);
+        color: #fff;
+        padding: 20px 0
+    }
+
+    footer hr {
+        border-top: 1px solid rgba(255, 255, 255, .7)
+    }
+
+    footer p {
+        margin: 0
+    }
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous" />
+    <link rel="stylesheet" href = "{% static '../static/CSS/home.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
+        integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static '../static/CSS/aboutUs.css' %}">
+    <link rel="stylesheet" href = "{% static '../static/CSS/academics.css' %}" />
+    <link rel="stylesheet" href="{% static '../static/CSS/admission.css' %}">
+    <link rel="stylesheet" href="{% static '../static/CSS/facilities.css' %}">
+    <link rel="stylesheet" href="{% static '../static/CSS/gallery.css' %}">
+    <link rel="stylesheet" href="{% static '../static/CSS/contacts.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/admission_reg.css' %}">
+    <title> {% block title %}Default{% endblock %}</title>
+</head>
+
+<body>
+    <section class="nav">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3 col-6 u">
+                    <p>
+                        <a href="https://maps.app.goo.gl/SuxfeMbottiQLims9"><i class="fa-solid fa-location-dot"></i> :
+                            Hazaribagh,
+                            Jharkhand</a>
+                    </p>
+                </div>
+                <div class="col-md-3 col-6 v">
+                    <p>
+                        <a href="tel:09876543210"><i class="fa-solid fa-phone"></i> : +91-9876543210</a>
+                    </p>
+                </div>
+                <div class="col-md-3 col-6 w">
+                    <p>
+                        <a href="mailto:info@website.com"><i class="fa-solid fa-envelopes-bulk"></i> :
+                            support@shantiniketan.com</a>
+                    </p>
+                </div>
+                <div class="col-md-3 col-6 x">
+                    <p class="nav1">
+                        <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="https://www.whatsapp.com/"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://www.youtube.com/"><i class="fa-brands fa-youtube"></i></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    {% include 'message.html' %}
+
+    {% block content %}
+    {% endblock %}
+
+    <footer class="f">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 x">
+                    <div class="logo-mark2">
+                        <i class="fa-solid fa-school"></i>
+                    </div>
+                    <div class="f1">
+                        <strong>SHANTI NIKETAN PUBLIC SCHOOL</strong>
+                        <br>
+                        <small>Empowering learners with knowledge, values and confidence to build a better
+                            tomorrow.</small>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us </a></li>
+                        <li><a href="academics.html">Academics </a></li>
+                        <li><a href="index.html">Admission</a></li>
+                        <li><a href="facilities.html">Facilities</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contacts.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h3>Address</h3>
+                    <p>
+                        <a href="https://maps.app.goo.gl/giGsAFL33aqtnKP36"><i class="fa-solid fa-map"></i> :
+                            Hazaribagh,
+                            Jharkhand</a>
+                    </p>
+                    <p>
+                        <a href="tel:09876543210"><i class="fa-solid fa-phone"></i> : +91-9876543210</a>
+                    </p>
+                    <p>
+                        <a href="mailto:info@website.com"><i class="fa-solid fa-envelopes-bulk"></i> :
+                            support@shantiniketan.com</a>
+                    </p>
+                    <p class="f3">
+                        <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="https://www.whatsapp.com/"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://www.youtube.com/"><i class="fa-brands fa-youtube"></i></a>
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <h3>Map Location</h3>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3644.7114266579056!2d85.3855311!3d24.0059653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f49c42d72e88cd%3A0xde1315db514d94bd!2sDAV%20Public%20School!5e0!3m2!1sen!2sin!4v1788414392050!5m2!1sen!2sin"
+                        width="290" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                </div>
+            </div>
+            <div class="text-center f4">
+                <hr>
+                © 2026 Shanti Niketan Public School. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

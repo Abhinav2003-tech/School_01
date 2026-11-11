@@ -1,0 +1,928 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block dash_active %}{% endblock %}
+{% block adm_active %}active{% endblock %}
+{% block title %}Admin_Admission{% endblock %}
+
+{% block content %}
+<section class="dashboard-section admission-section active-section" id="section-admissions">
+    {% include "message.html" %}
+    <div class="admission-heading">
+        <div>
+            <h2>
+                Admission Applications
+            </h2>
+
+            <p>
+                Manage and review student admission applications.
+            </p>
+
+        </div>
+        <button class="export-btn" id="exportApplications">
+
+            <i class="fa-solid fa-file-export"></i>
+
+            Export CSV
+
+        </button>
+
+    </div>
+    <!-- ADMISSION STATISTICS -->
+
+    <div class="admission-stats">
+        <div class="admission-stat">
+
+            <div class="stat-icon total">
+
+                <i class="fa-solid fa-file-lines"></i>
+
+            </div>
+
+            <div>
+
+                <h3 id="totalApplications">
+                    4
+                </h3>
+
+                <p>
+                    Total Applications
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="admission-stat">
+
+            <div class="stat-icon pending">
+
+                <i class="fa-solid fa-clock"></i>
+
+            </div>
+
+            <div>
+
+                <h3 id="pendingApplications">
+                    2
+                </h3>
+
+                <p>
+                    Pending Review
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="admission-stat">
+
+            <div class="stat-icon approved">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+            </div>
+
+            <div>
+
+                <h3 id="approvedApplications">
+                    1
+                </h3>
+
+                <p>
+                    Approved
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="admission-stat">
+
+            <div class="stat-icon rejected">
+
+                <i class="fa-solid fa-circle-xmark"></i>
+
+            </div>
+
+            <div>
+
+                <h3 id="rejectedApplications">
+                    1
+                </h3>
+
+                <p>
+                    Rejected
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- SEARCH / FILTER -->
+
+    <div class="admission-toolbar">
+
+        <div class="admission-search">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input type="text" id="applicationSearch" placeholder="Search student, father name or mobile...">
+
+        </div>
+
+
+        <div class="admission-filter">
+
+            <select id="applicationStatusFilter">
+
+                <option value="all">
+                    All Status
+                </option>
+
+                <option value="Pending">
+                    Pending
+                </option>
+
+                <option value="approved">
+                    approved
+                </option>
+
+                <option value="reject">
+                    reject
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+
+    <!-- APPLICATION TABLE -->
+
+    <div class="applications-table-wrapper">
+
+        <table class="applications-table" id="applicationsTable">
+
+            <thead>
+
+                <tr>
+
+                    <th>Application ID</th>
+                    <th>Student Name</th>
+                    <th>Date of Birth</th>
+                    <th>Gender</th>
+                    <th>Class</th>
+                    <th>Academic Year</th>
+                    <th>Father's Name</th>
+                    <th>Mobile Number</th>
+                    <th>Status</th>
+                    <th>Action</th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                <!-- APPLICATION 1 -->
+
+                {% for s in student_data %}
+
+                <tr data-status="{{s.status}}" data-student="{{s.firstname}} {{s.lastname}}"
+                    data-father="{{s.father_name}}" data-mobile="{{s.mobile_number}}">
+                    
+                    <td>
+                        <span class="application-id">
+                            ADM000{{s.id}}
+                        </span>
+                    </td>
+
+
+                    <td>
+
+                        <div class="student-name">
+
+                            <div class="student-avatar">{{ s.firstname|first|upper }}</div>
+
+                            <div>
+
+                                <strong>
+                                    {{ s.firstname }} {{ s.lastname }}
+                                </strong>
+
+                                <small>
+                                    {{ s.gender }}
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </td>
+
+
+                    <td>
+                        {{s.date_of_birth}}
+                    </td>
+
+                    <td>
+                        {{s.gender}}
+                    </td>
+
+                    <td>
+                        {{s.applying_for_class}}
+                    </td>
+
+                    <td>
+                        {{s.academic_year}}
+                    </td>
+
+                    <td>
+                        {{s.father_name}}
+                    </td>
+
+                    <td>
+                        {{s.mobile_number}}
+                    </td>
+
+                    <td>
+
+                        <span class="application-badge {{ s.status }}-badge">{{ s.get_status_display }}</span>
+
+                    </td>
+
+
+                    <td>
+                        <button type="button" class="action-btn view-btn" data-toggle="modal"
+                            data-target="#applicationModal" data-id="{{ s.id }}" data-first="{{ s.firstname }}"
+                            data-last="{{ s.lastname }}" data-dob="{{ s.date_of_birth|date:'Y-m-d' }}"
+                            data-gender="{{ s.gender }}" data-blood="{{ s.blood_group }}"
+                            data-class="{{ s.applying_for_class }}" data-year="{{ s.academic_year }}"
+                            data-previous-school="{{ s.previous_school }}" data-previous-class="{{ s.previous_class }}"
+                            data-father="{{ s.father_name }}" data-mother="{{ s.mother_name }}"
+                            data-guardian="{{ s.guardian_name }}" data-relationship="{{ s.relationship_with_student }}"
+                            data-mobile="{{ s.mobile_number }}" data-email="{{ s.email }}"
+                            data-address="{{ s.full_address }}" data-city="{{ s.city }}" data-state="{{ s.state }}"
+                            data-pin="{{ s.pincode }}" data-nationality="{{ s.nationality }}"
+                            data-religion="{{ s.religion }}" data-disability="{{ s.any_disabilities }}"
+                            data-special="{{ s.any_special_information }}" data-status="{{ s.status }}">
+                            <i class="fa-solid fa-eye"></i> View
+                        </button>
+
+                        <button type="button" class="action-btn edit-btn" data-toggle="modal"
+                            data-target="#editApplicationModal">
+                            <i class="fa-solid fa-pen-to-square"></i> Edit
+                        </button>
+                        <a href = "{% url 'admin_stud_delete' s.id  %}">
+                            <button type="submit" class="action-btn">
+                                <i class="fa-solid fa-trash"></i> Remove
+                            </button>
+                        </a>
+                    </td>
+                </tr>
+
+                <!-- APPLICATION 2 -->
+
+                <!-- <tr data-status="Pending" data-student="Priya Sharma" data-father="Amit Sharma"
+                    data-mobile="9876501234">
+
+                    <td>
+                        <span class="application-id">
+                            ADM002
+                        </span>
+                    </td>
+
+
+                    <td>
+
+                        <div class="student-name">
+
+                            <div class="student-avatar">
+                                P
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Priya Sharma
+                                </strong>
+
+                                <small>
+                                    Female
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </td>
+
+
+                    <td>
+                        18-08-2015
+                    </td>
+
+                    <td>
+                        Female
+                    </td>
+
+                    <td>
+                        Class 5
+                    </td>
+
+                    <td>
+                        2026 - 2027
+                    </td>
+
+                    <td>
+                        Amit Sharma
+                    </td>
+
+                    <td>
+                        9876501234
+                    </td>
+
+
+                    <td>
+
+                        <span class="application-badge pending-badge">
+                            Pending
+                        </span>
+
+                    </td>
+
+
+                    <td>
+
+                        <button class="action-btn view-btn" data-toggle="modal" data-target="#applicationModal"
+                            data-id="ADM002" data-first="Priya" data-middle="" data-last="Sharma" data-dob="18-08-2015"
+                            data-gender="Female" data-blood="O+" data-class="Class 5" data-year="2026 - 2027"
+                            data-previous-school="St. Xavier School" data-previous-class="Class 4"
+                            data-father="Amit Sharma" data-mother="Pooja Sharma" data-guardian=""
+                            data-relationship="Father" data-mobile="9876501234" data-email="amit@example.com"
+                            data-address="Lake Road, Hazaribagh" data-city="Hazaribagh" data-state="Jharkhand"
+                            data-pin="825301" data-nationality="Indian" data-religion="Hindu" data-disability="No"
+                            data-special="None" data-status="Pending">
+
+                            <i class="fa-solid fa-eye"></i>
+
+                            View
+
+                        </button>
+
+                    </td>
+
+                </tr> -->
+
+
+                <!-- APPLICATION 3 -->
+
+                <!-- <tr data-status="Approved" data-student="Aman Singh" data-father="Rakesh Singh"
+                    data-mobile="9123456780">
+
+                    <td>
+                        <span class="application-id">
+                            ADM003
+                        </span>
+                    </td>
+
+
+                    <td>
+
+                        <div class="student-name">
+
+                            <div class="student-avatar">
+                                A
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Aman Singh
+                                </strong>
+
+                                <small>
+                                    Male
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </td>
+
+
+                    <td>
+                        25-03-2012
+                    </td>
+
+                    <td>
+                        Male
+                    </td>
+
+                    <td>
+                        Class 9
+                    </td>
+
+                    <td>
+                        2026 - 2027
+                    </td>
+
+                    <td>
+                        Rakesh Singh
+                    </td>
+
+                    <td>
+                        9123456780
+                    </td>
+
+
+                    <td>
+
+                        <span class="application-badge approved-badge">
+                            Approved
+                        </span>
+
+                    </td>
+
+
+                    <td>
+
+                        <button class="action-btn view-btn" data-toggle="modal" data-target="#applicationModal"
+                            data-id="ADM003" data-first="Aman" data-middle="" data-last="Singh" data-dob="25-03-2012"
+                            data-gender="Male" data-blood="A+" data-class="Class 9" data-year="2026 - 2027"
+                            data-previous-school="DAV Public School" data-previous-class="Class 8"
+                            data-father="Rakesh Singh" data-mother="Meena Singh" data-guardian=""
+                            data-relationship="Father" data-mobile="9123456780" data-email="rakesh@example.com"
+                            data-address="Sadar, Hazaribagh" data-city="Hazaribagh" data-state="Jharkhand"
+                            data-pin="825301" data-nationality="Indian" data-religion="Hindu" data-disability="No"
+                            data-special="None" data-status="Approved">
+
+                            <i class="fa-solid fa-eye"></i>
+
+                            View
+
+                        </button>
+
+                    </td>
+
+                </tr> -->
+
+
+                <!-- APPLICATION 4 -->
+
+                <!-- <tr data-status="Rejected" data-student="Neha Sharma" data-father="Suresh Sharma"
+                    data-mobile="9988776655">
+
+                    <td>
+                        <span class="application-id">
+                            ADM004
+                        </span>
+                    </td>
+
+
+                    <td>
+
+                        <div class="student-name">
+
+                            <div class="student-avatar">
+                                N
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Neha Sharma
+                                </strong>
+
+                                <small>
+                                    Female
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </td>
+
+
+                    <td>
+                        05-11-2016
+                    </td>
+
+                    <td>
+                        Female
+                    </td>
+
+                    <td>
+                        Class 4
+                    </td>
+
+                    <td>
+                        2026 - 2027
+                    </td>
+
+                    <td>
+                        Suresh Sharma
+                    </td>
+
+                    <td>
+                        9988776655
+                    </td>
+
+
+                    <td>
+
+                        <span class="application-badge rejected-badge">
+                            Rejected
+                        </span>
+
+                    </td>
+
+
+                    <td>
+
+                        <button class="action-btn view-btn" data-toggle="modal" data-target="#applicationModal"
+                            data-id="ADM004" data-first="Neha" data-middle="" data-last="Sharma" data-dob="05-11-2016"
+                            data-gender="Female" data-blood="AB+" data-class="Class 4" data-year="2026 - 2027"
+                            data-previous-school="DAV Public School" data-previous-class="Class 3"
+                            data-father="Suresh Sharma" data-mother="Anita Sharma" data-guardian=""
+                            data-relationship="Father" data-mobile="9988776655" data-email="suresh@example.com"
+                            data-address="Matwari, Hazaribagh" data-city="Hazaribagh" data-state="Jharkhand"
+                            data-pin="825301" data-nationality="Indian" data-religion="Hindu" data-disability="No"
+                            data-special="None" data-status="Rejected">
+
+                            <i class="fa-solid fa-eye"></i>
+
+                            View
+
+                        </button>
+
+                    </td>
+
+                </tr> -->
+                {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+</section>
+<!-- ADMISSION DETAILS MODAL -->
+<div class="modal fade" id="applicationModal" tabindex="-1" role="dialog" aria-labelledby="applicationModalTitle"
+    aria-hidden="true">
+
+    <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <div>
+                    <h5 class="modal-title" id="applicationModalTitle">
+                        Admission Application Details
+                    </h5>
+                    <small>Application ID: <strong id="modalApplicationId">-</strong></small>
+                </div>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                {% csrf_token %}
+                <h6>Student Information</h6>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <strong>First Name</strong>
+                        <p id="modalFirstName">-</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <strong>Middle Name</strong>
+                        <p id="modalMiddleName">-</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <strong>Last Name</strong>
+                        <p id="modalLastName">-</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <strong>Date of Birth</strong>
+                        <p id="modalDOB">-</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <strong>Gender</strong>
+                        <p id="modalGender">-</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <strong>Blood Group</strong>
+                        <p id="modalBlood">-</p>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <strong>Applying Class</strong>
+                        <p id="modalClass">-</p>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <strong>Academic Year</strong>
+                        <p id="modalYear">-</p>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <strong>Previous School</strong>
+                        <p id="modalPreviousSchool">-</p>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <strong>Previous Class</strong>
+                        <p id="modalPreviousClass">-</p>
+                    </div>
+                </div>
+
+                <hr>
+                <h6>Parent / Guardian Information</h6>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <strong>Father's Name</strong>
+                        <p id="modalFather">-</p>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <strong>Mother's Name</strong>
+                        <p id="modalMother">-</p>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <strong>Guardian's Name</strong>
+                        <p id="modalGuardian">-</p>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <strong>Relationship</strong>
+                        <p id="modalRelationship">-</p>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <strong>Mobile Number</strong>
+                        <p id="modalMobile">-</p>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <strong>Email</strong>
+                        <p id="modalEmail">-</p>
+                    </div>
+                </div>
+
+                <hr>
+                <h6>Address Information</h6>
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <strong>Address</strong>
+                        <p id="modalAddress">-</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <strong>City</strong>
+                        <p id="modalCity">-</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <strong>State</strong>
+                        <p id="modalState">-</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <strong>PIN Code</strong>
+                        <p id="modalPin">-</p>
+                    </div>
+                </div>
+
+                <hr>
+                <h6>Additional Information</h6>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <strong>Nationality</strong>
+                        <p id="modalNationality">-</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <strong>Religion</strong>
+                        <p id="modalReligion">-</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <strong>Disability</strong>
+                        <p id="modalDisability">-</p>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <strong>Special Information</strong>
+                        <p id="modalSpecial">-</p>
+                    </div>
+                </div>
+
+                <hr>
+                <div class="form-group">
+                    <label for="modalStatus"><strong>Application Status</strong></label>
+                    <select id="modalStatus" class="form-control">
+                        <option value="all">All Status</option>
+                        <option value="pending">Pending</option>
+                        <option value="approved">Approved</option>
+                        <option value="reject">Rejected</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="approveApplication">
+                    Approve
+                </button>
+
+                <button type="button" class="btn btn-danger" id="rejectApplication">
+                    Reject
+                </button>
+
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- EDIT APPLICATION MODAL -->
+<div class="modal fade" id="editApplicationModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <form id="editApplicationForm" autocomplete="off">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="update">
+                <input type="hidden" name="application_id" id="edit_application_id">
+
+                <div class="modal-header">
+                    <div>
+                        <h5 class="modal-title">Edit Admission Application</h5>
+                        <strong>Application ID: ADM000<strong id="editApplicationIdLabel">-</strong></strong>
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <h6>Student Information</h6>
+                    <div class="row">
+                        <div class="col-md-4 form-group">
+                            <label for="edit_firstname">First Name *</label>
+                            <input type="text" class="form-control" id="edit_firstname" name="firstname" required>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="edit_middlename">Middle Name</label>
+                            <input type="text" class="form-control" id="edit_middlename" name="middlename">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="edit_lastname">Last Name *</label>
+                            <input type="text" class="form-control" id="edit_lastname" name="lastname" required>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="edit_date_of_birth">Date of Birth *</label>
+                            <input type="date" class="form-control" id="edit_date_of_birth" name="date_of_birth"
+                                required>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="edit_gender">Gender</label>
+                            <input type="text" class="form-control" id="edit_gender" name="gender" list="genderOptions">
+                            <datalist id="genderOptions">
+                                <option value="Male">
+                                <option value="Female">
+                                <option value="Other">
+                            </datalist>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="edit_blood_group">Blood Group</label>
+                            <input type="text" class="form-control" id="edit_blood_group" name="blood_group"
+                                list="bloodOptions">
+                            <datalist id="bloodOptions">
+                                <option value="A+">
+                                <option value="A-">
+                                <option value="B+">
+                                <option value="B-">
+                                <option value="AB+">
+                                <option value="AB-">
+                                <option value="O+">
+                                <option value="O-">
+                            </datalist>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="edit_applying_for_class">Applying Class *</label>
+                            <input type="text" class="form-control" id="edit_applying_for_class"
+                                name="applying_for_class" required>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="edit_academic_year">Academic Year *</label>
+                            <input type="text" class="form-control" id="edit_academic_year" name="academic_year"
+                                required>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="edit_previous_school">Previous School</label>
+                            <input type="text" class="form-control" id="edit_previous_school" name="previous_school">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="edit_previous_class">Previous Class</label>
+                            <input type="text" class="form-control" id="edit_previous_class" name="previous_class">
+                        </div>
+                    </div>
+
+                    <hr>
+                    <h6>Parent / Guardian Information</h6>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label for="edit_father_name">Father's Name</label>
+                            <input type="text" class="form-control" id="edit_father_name" name="father_name">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="edit_mother_name">Mother's Name</label>
+                            <input type="text" class="form-control" id="edit_mother_name" name="mother_name">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="edit_guardian_name">Guardian's Name</label>
+                            <input type="text" class="form-control" id="edit_guardian_name" name="guardian_name">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="edit_relationship_with_student">Relationship</label>
+                            <input type="text" class="form-control" id="edit_relationship_with_student"
+                                name="relationship_with_student">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="edit_mobile_number">Mobile Number *</label>
+                            <input type="text" class="form-control" id="edit_mobile_number" name="mobile_number"
+                                required>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="edit_email">Email *</label>
+                            <input type="email" class="form-control" id="edit_email" name="email" required>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <h6>Address Information</h6>
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <label for="edit_full_address">Address</label>
+                            <textarea class="form-control" id="edit_full_address" name="full_address"
+                                rows="2"></textarea>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="edit_city">City</label>
+                            <input type="text" class="form-control" id="edit_city" name="city">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="edit_state">State</label>
+                            <input type="text" class="form-control" id="edit_state" name="state">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="edit_pincode">PIN Code</label>
+                            <input type="text" class="form-control" id="edit_pincode" name="pincode">
+                        </div>
+                    </div>
+
+                    <hr>
+                    <h6>Additional Information</h6>
+                    <div class="row">
+                        <div class="col-md-4 form-group">
+                            <label for="edit_nationality">Nationality</label>
+                            <input type="text" class="form-control" id="edit_nationality" name="nationality">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="edit_religion">Religion</label>
+                            <input type="text" class="form-control" id="edit_religion" name="religion">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="edit_any_disabilities">Disability</label>
+                            <input type="text" class="form-control" id="edit_any_disabilities" name="any_disabilities">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="edit_any_special_information">Special Information</label>
+                            <textarea class="form-control" id="edit_any_special_information"
+                                name="any_special_information" rows="2"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" id="saveEditApplication">Save Changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- <script>
+    $(document).ready(function () {
+
+        $("#applicationModal").on("show.bs.modal", function (event) {
+            const button = $(event.relatedTarget);
+
+            const applicationId = button.attr("data-id");
+            const currentStatus = button.attr("data-status") || "pending";
+
+            $("#modalApplicationIdInput").val(applicationId);
+            $("#modalStatus").val(currentStatus.toLowerCase());
+        });
+
+    });
+</script> -->
+{% endblock %}

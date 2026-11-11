@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Facilities{% endblock %}
+
+{% block content %}
+    <section class="about-banner">
+        <div class="banner-overlay">
+            <div class="container">
+                <h3>Facilities</h3>
+                <p><a href="{% url 'index_page' %}">Home</a> <i class="fa-solid fa-angle-right"></i> Facilities</p>
+            </div>
+        </div>
+    </section>
+    <section class="intro py-5">
+        <div class="container">
+            <div class="section-title text-center">
+                <h1>OUR CAMPUS</h1>
+                <h2>Facilities For Every Learner</h2>
+                <div class="line"></div>
+            </div>
+            <p class="intro-text text-center mt-4">
+                Our school provides a well-planned learning environment with facilities that
+                support academic growth, creativity, physical fitness and the overall development of students.
+            </p>
+
+            <div class="facility-grid mt-5">
+
+                <div class="facility-card">
+                    <div class="icon"><i class="fa-solid fa-book-open"></i></div>
+                    <h3>Library</h3>
+                    <p>A well-stocked library that encourages reading, research and independent learning.</p>
+                </div>
+
+                <div class="facility-card">
+                    <div class="icon"><i class="fa-solid fa-flask"></i></div>
+                    <h3>Science Laboratories</h3>
+                    <p>Practical learning spaces where students explore scientific concepts through experiments.</p>
+                </div>
+
+                <div class="facility-card">
+                    <div class="icon"><i class="fa-solid fa-computer"></i></div>
+                    <h3>Computer Lab</h3>
+                    <p>Technology-enabled learning with computers and digital resources for students.</p>
+                </div>
+
+                <div class="facility-card">
+                    <div class="icon"><i class="fa-solid fa-futbol"></i></div>
+                    <h3>Sports Facilities</h3>
+                    <p>Spaces and activities that promote fitness, teamwork, discipline and sportsmanship.</p>
+                </div>
+
+                <div class="facility-card">
+                    <div class="icon"><i class="fa-solid fa-person-chalkboard"></i></div>
+                    <h3>Smart Classrooms</h3>
+                    <p>Interactive classrooms that combine traditional teaching with digital learning tools.</p>
+                </div>
+
+                <div class="facility-card">
+                    <div class="icon"><i class="fa-solid fa-bus"></i></div>
+                    <h3>Transport</h3>
+                    <p>Convenient school transportation facilities designed with student safety in mind.</p>
+                </div>
+
+                <div class="facility-card">
+                    <div class="icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <h3>Health & Safety</h3>
+                    <p>A clean and secure campus with a focus on student wellbeing and safety.</p>
+                </div>
+
+                <div class="facility-card">
+                    <div class="icon"><i class="fa-solid fa-music"></i></div>
+                    <h3>Music & Activity Room</h3>
+                    <p>Dedicated spaces for music, arts, cultural activities and creative expression.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="why-us py-5">
+        <div class="container">
+            <div class="section-title text-center">
+                <p>WHY OUR FACILITIES MATTER</p>
+                <h2>A Better School Experience</h2>
+                <div class="line"></div>
+            </div>
+
+            <div class="benefits mt-5">
+                <div class="benefit"><i class="fa-solid fa-shield-halved"></i>
+                    <h4>Safe Environment</h4>
+                    <p>Students learn in a secure and caring atmosphere.</p>
+                </div>
+                <div class="benefit"><i class="fa-solid fa-lightbulb"></i>
+                    <h4>Better Learning</h4>
+                    <p>Resources help students understand concepts through practical experiences.</p>
+                </div>
+                <div class="benefit"><i class="fa-solid fa-people-group"></i>
+                    <h4>Holistic Growth</h4>
+                    <p>Academic, physical, social and creative development are encouraged.</p>
+                </div>
+                <div class="benefit"><i class="fa-solid fa-seedling"></i>
+                    <h4>Positive Environment</h4>
+                    <p>A welcoming campus helps students grow with confidence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

@@ -1,0 +1,313 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Admission{% endblock %}
+
+{% block content %}
+    <section class="about-banner">
+        <div class="banner-overlay">
+            <div class="container">
+                <h3>Admission</h3>
+                <p><a href="{% url 'index_page' %}">Home</a> <i class="fa-solid fa-angle-right"></i> Admission</p>
+            </div>
+        </div>
+    </section>
+    <section class="admission-header">
+        <div class="container">
+            <div class="heading-line"></div>
+            <h1>
+                <span>Admission</span> Open
+            </h1>
+            <p>
+                Begin your child's educational journey with
+                Shanti Niketan Public School.
+            </p>
+        </div>
+    </section>
+
+    <section class="admission-section">
+        <div class="container">
+            <div class="section-heading text-center">
+                <div class="small-line"></div>
+                <h2>
+                    Join Our <span>School</span>
+                </h2>
+                <p>
+                    We welcome students who are eager to learn,
+                    grow and build a bright future.
+                </p>
+            </div>
+            <div class="row align-items-stretch">
+                <!-- ================= INFORMATION ================= -->
+                <div class="col-lg-5 mb-4">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <h3>
+                            Admission Information
+                        </h3>
+                        <p>
+                            Our admission process is designed to be
+                            simple, transparent and convenient for
+                            parents and students.
+                        </p>
+                        <div class="info-item">
+                            <i class="fa-solid fa-check"></i>
+                            <span>
+                                Classes from Nursery to senior classes
+                            </span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-solid fa-check"></i>
+                            <span>
+                                Student-friendly learning environment
+                            </span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-solid fa-check"></i>
+                            <span>
+                                Qualified and dedicated teachers
+                            </span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-solid fa-check"></i>
+                            <span>
+                                Academic and co-curricular activities
+                            </span>
+                        </div>
+                        <div class="contact-box">
+                            <h4>
+                                Need Help?
+                            </h4>
+                            <p>
+                                Contact the school office for
+                                admission-related information.
+                            </p>
+                            <a href="tel:+919876543210">
+                                <i class="fa-solid fa-phone"></i>
+                                +91-9876543210
+                            </a>
+                            <a href="mailto:support@shantiniketan.com">
+                                <i class="fa-solid fa-envelope"></i>
+                                support@shantiniketan.com
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- ================= FORM ================= -->
+                <div class="col-lg-7 mb-4">
+                    <div class="form-card">
+                        <div class="form-heading">
+                            <div class="form-icon">
+                                <i class="fa-solid fa-file-pen"></i>
+                            </div>
+                            <div>
+                                <h3>
+                                    Admission Enquiry Form
+                                </h3>
+                                <p>
+                                    Fill in the details below and
+                                    our school team will contact you.
+                                </p>
+                            </div>
+                        </div>
+                        <form id="admissionForm">
+                            <!-- STUDENT NAME -->
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>
+                                        Student First Name
+                                    </label>
+                                    <input type="text" class="form-control" id="studentFirstName"
+                                        placeholder="Enter first name" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>
+                                        Student Last Name
+                                    </label>
+                                    <input type="text" class="form-control" id="studentLastName"
+                                        placeholder="Enter last name" required>
+                                </div>
+                            </div>
+                            <!-- DOB + GENDER -->
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>
+                                        Date of Birth
+                                    </label>
+                                    <input type="date" class="form-control" id="dob" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>
+                                        Gender
+                                    </label>
+                                    <select class="form-control" id="gender" required>
+                                        <option value="">
+                                            Select Gender
+                                        </option>
+                                        <option>
+                                            Male
+                                        </option>
+                                        <option>
+                                            Female
+                                        </option>
+                                        <option>
+                                            Other
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- CLASS + GUARDIAN -->
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>
+                                        Class Applying For
+                                    </label>
+                                    <select class="form-control" id="classApplying" required>
+                                        <option value="">
+                                            Select Class
+                                        </option>
+                                        <option>Nursery</option>
+                                        <option>LKG</option>
+                                        <option>UKG</option>
+                                        <option>Class 1</option>
+                                        <option>Class 2</option>
+                                        <option>Class 3</option>
+                                        <option>Class 4</option>
+                                        <option>Class 5</option>
+                                        <option>Class 6</option>
+                                        <option>Class 7</option>
+                                        <option>Class 8</option>
+                                        <option>Class 9</option>
+                                        <option>Class 10</option>
+                                        <option>Class 11</option>
+                                        <option>Class 12</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>
+                                        Parent / Guardian Name
+                                    </label>
+                                    <input type="text" class="form-control" id="guardianName"
+                                        placeholder="Enter guardian name" required>
+                                </div>
+                            </div>
+                            <!-- MOBILE + EMAIL -->
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>
+                                        Mobile Number
+                                    </label>
+                                    <input type="tel" class="form-control" id="mobile" placeholder="Enter mobile number"
+                                        maxlength="10" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>
+                                        Email Address
+                                    </label>
+                                    <input type="email" class="form-control" id="email"
+                                        placeholder="Enter email address">
+                                </div>
+                            </div>
+                            <!-- ADDRESS -->
+                            <div class="form-group">
+                                <label>
+                                    Address
+                                </label>
+                                <textarea class="form-control" id="address" rows="3"
+                                    placeholder="Enter complete address" required></textarea>
+                            </div>
+                            <!-- MESSAGE -->
+                            <div class="form-group">
+                                <label>
+                                    Message / Additional Information
+                                </label>
+                                <textarea class="form-control" id="message" rows="3"
+                                    placeholder="Write your message"></textarea>
+                            </div>
+                            <div id="formMessage"></div>
+                            <!-- BUTTONS -->
+                            <button type="submit" class="btn submit-btn">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                Submit Admission Enquiry
+                            </button>
+                            <button type="reset" class="btn reset-btn">
+                                <i class="fa-solid fa-rotate-left"></i>
+                                Reset
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ================= ADMISSION PROCESS ================= -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-heading text-center">
+                <div class="small-line"></div>
+                <h2>
+                    Admission <span>Process</span>
+                </h2>
+                <p>
+                    Follow these simple steps to begin the admission journey.
+                </p>
+            </div>
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="step-number">
+                        01
+                    </div>
+                    <i class="fa-solid fa-file-lines"></i>
+                    <h3>
+                        Enquiry
+                    </h3>
+                    <p>
+                        Submit the admission enquiry form
+                        with the required details.
+                    </p>
+                </div>
+                <div class="process-card">
+                    <div class="step-number">
+                        02
+                    </div>
+                    <i class="fa-solid fa-comments"></i>
+                    <h3>
+                        Interaction
+                    </h3>
+                    <p>
+                        The school team will contact the
+                        parent or guardian.
+                    </p>
+                </div>
+                <div class="process-card">
+                    <div class="step-number">
+                        03
+                    </div>
+                    <i class="fa-solid fa-clipboard-check"></i>
+                    <h3>
+                        Assessment
+                    </h3>
+                    <p>
+                        Student assessment or interaction
+                        may be conducted where applicable.
+                    </p>
+                </div>
+                <div class="process-card">
+                    <div class="step-number">
+                        04
+                    </div>
+                    <i class="fa-solid fa-school"></i>
+                    <h3>
+                        Confirmation
+                    </h3>
+                    <p>
+                        Complete the required formalities
+                        to confirm admission.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

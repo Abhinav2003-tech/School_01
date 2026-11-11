@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}About Us{% endblock %}
+
+
+{% block content %}
+<section class="">
+    <section class="about-banner">
+        <div class="banner-overlay">
+            <div class="container">
+                <h3>About Us</h3>
+                <p><a href="{% url 'index_page' %}">Home</a> <i class="fa-solid fa-angle-right"></i> About Us</p>
+            </div>
+        </div>
+    </section>
+    <section class="b">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 b1">
+                    <span class="section-small-title">WELCOME TO OUR SCHOOL</span>
+                    <h2>SHANTI NIKETAN <span>PUBLIC SCHOOL</span></h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="c">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 c1">
+                    <p>
+                        At Shanti Niketan School, we believe that education is not just about academic success—it is
+                        about nurturing responsible, confident, creative, and compassionate individuals who are prepared
+                        to make a positive difference in the world.
+
+                        Our school provides a safe, supportive, and inspiring learning environment where every student
+                        is encouraged to discover their potential, develop their talents, and pursue their dreams.
+                    </p>
+                    <p>
+                        Our school believes that education is not limited to textbooks and examinations. We focus on the
+                        overall development of students by nurturing their academic abilities, creativity, confidence,
+                        discipline, communication skills, and moral values.
+                    </p>
+                    <div class="about-points">
+                        <div><i class="fa-solid fa-circle-check"></i> Student-centered learning</div>
+                        <div><i class="fa-solid fa-circle-check"></i> Experienced and caring faculty</div>
+                        <div><i class="fa-solid fa-circle-check"></i> Modern classrooms and
+                            <pre>    laboratories</pre>
+                        </div>
+                        <div><i class="fa-solid fa-circle-check"></i> Focus on character and
+                            <pre>    leadership</pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 c2">
+                    <img src="{% static 'Image/About_Us.jpg' %}">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="mission-section">
+        <div class="container">
+            <div class="section-heading">
+                <span>OUR PURPOSE</span>
+                <h2>Building a Better <strong>Future</strong></h2>
+                <p>We create an environment where every child can learn, grow and succeed.</p>
+            </div>
+            <div class="mission-flex">
+                <div class="mission-card">
+                    <div class="icon-circle"><i class="fa-solid fa-bullseye"></i></div>
+                    <h3>Our Mission</h3>
+                    <p>To provide holistic and meaningful education that develops students intellectually, socially,
+                        emotionally and morally.</p>
+                </div>
+                <div class="mission-card">
+                    <div class="icon-circle"><i class="fa-solid fa-eye"></i></div>
+                    <h3>Our Vision</h3>
+                    <p>To create a vibrant learning community that inspires curiosity, creativity, leadership and
+                        lifelong learning.</p>
+                </div>
+                <div class="mission-card">
+                    <div class="icon-circle"><i class="fa-solid fa-heart"></i></div>
+                    <h3>Our Values</h3>
+                    <p>We promote integrity, respect, discipline, kindness, responsibility and excellence in everything
+                        our students do.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+    
+{% endblock %}

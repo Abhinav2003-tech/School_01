@@ -1,0 +1,603 @@
+@media (max-width:2560px) {
+    .d {
+        background-color: rgb(31, 31, 93);
+        padding: 10px 0px;
+        position: relative;
+    }
+
+    .logo-mark {
+        height: 42px;
+        width: 42px;
+        border-radius: 10px;
+        background: #0b5dcc;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        margin-right: 0px;
+        margin-top: 1px;
+    }
+
+    .brand-text {
+        color: white;
+        margin-left: -75px;
+        margin-top: -2px;
+    }
+
+    .d1 {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 15px;
+    }
+
+    .d1 input,
+    button {
+        border-radius: 10px;
+        height: 35px;
+    }
+
+    .d2 i {
+        color: white;
+        font-size: 25px;
+        margin-top: 10px;
+        padding-left: 145px;
+    }
+
+    .d3 i {
+        color: white;
+        font-size: 25px;
+        margin-top: 10px;
+        padding-left: 60px;
+    }
+
+    .d4 {
+        display: flex;
+        flex-direction: row;
+        height: 40px;
+        width: 30px;
+        background-color: white;
+        border-radius: 20px;
+        margin-left: -15px;
+    }
+
+    .d4 .icon {
+        font-size: 25px;
+        margin-left: -10px;
+    }
+
+    .admin-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .admin-name {
+        margin-top: -8px;
+        padding-top: 3px;
+    }
+
+    .dropdown01 {
+        display: flex;
+        flex-direction: column;
+        margin-top: 7px;
+        margin-left: 2px;
+        font-size: 23px;
+    }
+
+    .sidebar {
+        position: sticky;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 240px;
+        height: 90.8vh;
+        padding: 0 1.7rem;
+        color: #fff;
+        overflow: hidden;
+        transition: all 0.5s linear;
+        background: rgba(113, 99, 186, alpha);
+        background-color: #172b4d;
+    }
+
+    .sidebar:hover {
+        width: 240px;
+        transition: 0.5s;
+    }
+
+    .logo {
+        height: 20px;
+        padding: 16px;
+    }
+
+    .menu {
+        height: 88%;
+        position: relative;
+        list-style: none;
+        padding: 0;
+    }
+
+    .menu li {
+        margin: 8px 0;
+    }
+
+    .menu li a {
+        padding: 1rem;
+        border-radius: 8px;
+    }
+
+    .menu li a:hover,
+    .menu li a.active {
+        background: #e0e0e058;
+    }
+
+    .menu a {
+        color: #fff;
+        font-size: 14px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .menu a span {
+        overflow: hidden;
+    }
+
+    .menu a i {
+        font-size: 1.2rem;
+    }
+
+    .h1 {}
+
+    .cards-container {
+        width: 100%;
+        padding: 20px 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: stretch;
+        gap: 20px;
+    }
+
+    .card {
+        width: 25%;
+        height: 125px;
+        background-color: white;
+        border: 1px solid #e5eaf1;
+        border-radius: 13px;
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(25, 50, 90, 0.05);
+    }
+
+    .card-content {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .card-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .card-info p {
+        color: #7c879b;
+        font-size: 13px;
+        margin-bottom: 5px;
+    }
+
+    .card-info h2 {
+        color: #172033;
+        font-size: 27px;
+        font-weight: 500;
+        margin-bottom: 5px;
+    }
+
+    .card-info span {
+        color: #159568;
+        font-size: 11px;
+    }
+
+    .card-info span i {
+        margin-right: 3px;
+    }
+
+    .card-icon {
+        height: 48px;
+        width: 48px;
+        background-color: #eaf2ff;
+        color: #1550b8;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+    }
+
+    .card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(25, 50, 90, 0.10);
+        transition: 0.3s;
+    }
+
+    .dashboard {
+        width: 100%;
+        display: flex;
+        gap: 20px;
+        align-items: stretch;
+    }
+
+    .attendance-card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 20px;
+        width: 65%;
+        min-height: 342px;
+        box-shadow: 0 3px 15px rgba(20, 40, 80, 0.06);
+    }
+
+    .attendance-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .attendance-header h2,
+    .fee-header h2 {
+        font-size: 16px;
+        font-weight: 700;
+        color: #14213d;
+    }
+
+    .select-box {
+        width: 131px;
+        height: 43px;
+        border: 1px solid #d5dce5;
+        border-radius: 7px;
+        background: #fff;
+        padding: 0 12px;
+        font-size: 14px;
+        color: #566274;
+        outline: none;
+    }
+
+    .chart {
+        height: 255px;
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-end;
+        padding: 30px 15px 0;
+    }
+
+    .bar-item {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        width: 70px;
+    }
+
+    .percentage {
+        font-size: 10px;
+        color: #5b6d92;
+        margin-bottom: 5px;
+    }
+
+    .bar {
+        width: 43px;
+        background: #316bd9;
+        border-radius: 7px 7px 2px 2px;
+    }
+
+    .day {
+        font-size: 11px;
+        color: #8995a8;
+        margin-top: 9px;
+    }
+
+    .fee-card {
+        width: 35%;
+        background: #fff;
+        border-radius: 12px;
+        padding: 22px 20px;
+        box-shadow: 0 3px 15px rgba(20, 40, 80, 0.06);
+    }
+
+    .fee-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .amount {
+        color: #087cff;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .subtitle {
+        color: #8490a3;
+        font-size: 14px;
+        margin-top: 22px;
+    }
+
+    .progress-container {
+        height: 6px;
+        width: 100%;
+        background: #e7ebef;
+        border-radius: 5px;
+        overflow: hidden;
+        margin-top: 18px;
+    }
+
+    .progress {
+        width: 78%;
+        height: 100%;
+        background: #087cff;
+    }
+
+    .target {
+        color: #8490a3;
+        font-size: 14px;
+        margin-top: 13px;
+    }
+
+    .divider {
+        border: none;
+        border-top: 1px solid #e0e3e8;
+        margin: 18px 0;
+    }
+
+    .fee-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+        margin-bottom: 13px;
+    }
+
+    .fee-row span:first-child {
+        color: #1d2738;
+    }
+
+    .fee-row strong {
+        color: #182238;
+        font-size: 14px;
+    }
+
+    .card {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 22px 19px 20px;
+        box-shadow: 0 5px 18px rgba(20, 40, 80, 0.05);
+    }
+
+    .students-card {
+        width: 687px;
+    }
+
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 17px;
+    }
+
+    .card-title {
+        font-size: 16px;
+        font-weight: 700;
+        color: #14213d;
+    }
+
+    .view-all {
+        color: #087cff;
+        font-size: 14px;
+        text-decoration: none;
+    }
+
+    .student-table {
+        width: 100%;
+        border: 1px solid #e5eaf0;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    .table-row {
+        display: flex;
+        align-items: center;
+        min-height: 44px;
+        border-bottom: 1px solid #e1e6ec;
+    }
+
+    .table-row:last-child {
+        border-bottom: none;
+    }
+
+    .table-header {
+        background: #f7f9fc;
+        color: #5f7089;
+        font-size: 12px;
+    }
+
+    .table-data {
+        color: #405572;
+        font-size: 13px;
+    }
+
+    .cell {
+        padding: 0 12px;
+    }
+
+    .id {
+        width: 115px;
+    }
+
+    .student {
+        width: 175px;
+    }
+
+    .class {
+        width: 88px;
+    }
+
+    .attendance {
+        width: 165px;
+    }
+
+    .status {
+        flex: 1;
+    }
+
+    .active {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        background: #e3f7ee;
+        color: #24a06a;
+        font-size: 11px;
+        padding: 5px 11px;
+        border-radius: 20px;
+    }
+
+    .notices-card {
+        width: 481px;
+        padding-bottom: 30px;
+    }
+
+    .notices {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+    }
+
+    .notice {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 76px;
+        padding: 14px 14px;
+        background: #f5f7fb;
+        border-left: 4px solid #185aca;
+        border-radius: 8px;
+    }
+
+    .notice-title {
+        font-size: 14px;
+        font-weight: 700;
+        color: #14213d;
+        margin-bottom: 8px;
+    }
+
+    .notice-description {
+        font-size: 14px;
+        color: #8997ad;
+    }
+
+    .bottom-row {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 32px;
+        padding: 0 20px;
+        margin-top: 7px;
+    }
+
+    .bottom-row .students-card {
+        width: 756px;
+        height: auto;
+        flex-shrink: 0;
+    }
+
+    .bottom-row .notices-card {
+        width: 465px;
+        height: auto;
+        flex-shrink: 0;
+    }
+
+    .bottom-row .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 17px;
+    }
+
+    .student-table {
+        width: 100%;
+        border: 1px solid #e5eaf0;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    .table-row {
+        display: flex;
+        align-items: center;
+        min-height: 44px;
+        border-bottom: 1px solid #e1e6ec;
+    }
+
+    .table-row:last-child {
+        border-bottom: none;
+    }
+
+    .notices {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .notice {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 76px;
+        padding: 14px;
+        background: #f5f7fb;
+        border-left: 4px solid #185aca;
+        border-radius: 8px;
+    }
+
+    .ds1 {
+        margin-left: 240px;
+        margin-top: -630px;
+    }
+    .slidebar-right {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 200px;
+        height: 18vh;
+        background-color: #172b4d;
+        color: white;
+        padding-top: 0px;
+        display: none;
+        z-index: 1000;
+        border-bottom-left-radius: 3px;
+    }
+
+    .slidebar-right-items {
+        display: flex;
+        align-items: center;
+        padding: 15px 25px;
+        cursor: pointer;
+        font-size: 17px;
+    }
+
+    .slidebar-right-items i {
+        width: 20px;
+        font-size: 15px;
+    }
+
+    .slidebar-right-items:hover {
+        background-color: #24598a;
+    }
+    .slidebar-right-items span{
+        color: white;
+    }
+
+}

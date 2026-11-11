@@ -1,0 +1,127 @@
+@media (max-width:2560px) {
+    .nav {
+        background-color: rgb(31, 31, 93);
+        padding: 10px 0px;
+    }
+    .nav a {
+        color: white;
+    }
+    .nav1 {
+        text-align: right;
+    }
+    .nav1 a {
+        color: white;
+        margin-left: 0px;
+    }
+    .about-banner {
+        height: 90px;
+        background: linear-gradient(rgba(4, 54, 110, .75), rgba(4, 54, 110, .75));
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center
+    }
+    .banner-overlay {
+        width: 70%
+    }
+    .about-banner h3 {
+        color: #fff;
+        font-size: 45px;
+        font-weight: 700;
+        margin-bottom: 12px
+    }
+    .about-banner p,
+    a {
+        color: #fff;
+        margin-top: -10px;
+    }
+    .about-banner:hover a {
+        color: white;
+    }
+    .about-banner i {
+        margin: 0 10px
+    }
+    .intro-text {
+        max-width: 850px;
+        margin-left: auto;
+        margin-right: auto;
+        color: #59697d
+    }
+    .facility-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 25px;
+        justify-content: center
+    }
+    .facility-card {
+        flex: 1 1 250px;
+        max-width: 285px;
+        padding: 30px 25px;
+        background: #fff;
+        border: 1px solid #dfe7f1;
+        border-radius: 10px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, .06);
+        transition: .3s
+    }
+    .facility-card:hover,
+    .benefit:hover {
+        transform: translateY(-7px)
+    }
+    .icon {
+        width: 68px;
+        height: 68px;
+        border: 2px solid #135cb1;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #135cb1;
+        font-size: 27px;
+        margin-bottom: 18px
+    }
+    .facility-card h3 {
+        color: #17365d;
+        font-size: 21px;
+        font-weight: 700
+    }
+    .why-us {
+        background: #f7faff
+    }
+    .benefits {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 22px
+    }
+    .benefit {
+        flex: 1 1 210px;
+        background: #fff;
+        text-align: center;
+        padding: 28px 20px;
+        border: 1px solid #e0e8f2;
+        border-radius: 10px;
+        transition: .3s
+    }
+    .benefit i {
+        font-size: 32px;
+        color: #135cb1;
+        margin-bottom: 14px
+    }
+    .benefit h4 {
+        color: #17365d;
+        font-weight: 700
+    }
+    .section-title h1 {
+        color: #135cb1;
+    }
+    footer {
+        background: rgb(31, 31, 93);
+        color: #fff;
+        padding: 20px 0
+    }
+    footer hr {
+        border-top: 1px solid rgba(255, 255, 255, .7)
+    }
+    footer p {
+        margin: 0
+    }
+}
