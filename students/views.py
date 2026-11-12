@@ -288,3 +288,11 @@ def remove_student_list(request, stud_id):
     stud_is.delete()
     messages.success(request, "Data delete successfully")
     return redirect("admin_admission_page")
+
+
+def forgot_password_view(request):
+    return render(request, 'forgot_password.html')
+
+
+def reset_password_view(request):
+    return render(request, 'reset_password.html')

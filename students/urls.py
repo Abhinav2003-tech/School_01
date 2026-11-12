@@ -22,5 +22,7 @@ urlpatterns = [
     path('adminSettings/', adminSettingsview, name = 'admin_settings_page'),
     path('stud_data/<int:stud_id>', remove_student_list, name = 'admin_stud_delete'),
     path('adminLogout/', logoutview, name = 'admin_logout'),
-    path('adminEnquiries/', adminEnquiriesview, name = 'admin_enquiries_page')
+    path('adminEnquiries/', adminEnquiriesview, name = 'admin_enquiries_page'),
+    path('forgot-password/', forgot_password_view, name='forgot_password'),
+    path('reset-password/', reset_password_view, name='reset_password'),
 ]
